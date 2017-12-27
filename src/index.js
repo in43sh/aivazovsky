@@ -7,6 +7,7 @@ import Biography from './Biography';
 import Paintings from './Paintings';
 import About from './About';
 import Credits from './Credits';
+import Admin from './Admin';
 import registerServiceWorker from './registerServiceWorker';
 
 
