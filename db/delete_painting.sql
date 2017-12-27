@@ -1,0 +1,1 @@
+DELETE FROM aivazovsky WHERE id = $1;

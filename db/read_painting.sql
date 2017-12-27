@@ -1,0 +1,1 @@
+SELECT * FROM aivazovsky WHERE id = $1;
