@@ -54,35 +54,35 @@ class Admin extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="Admin">
         <div>
-          <header className="App-header">
+          <div className="Admin-header">
             <h2>Admin</h2>
-          </header>
+          </div>
+          <div className="Add-painting-div">
+            <div>Please enter the information about the painting:</div>
+            <br />
 
-          <body>
             <div>
-              <div>Please enter the information about the painting:</div>
-              <div>
-                Title:
-                <input onChange={ (e) => this.handleTitleChange(e.target.value) }></input>
-              </div>
-              
-              <div>Year:
-                <input onChange={ (e) => this.handleYearChange(e.target.value) }></input>
-              </div>
-              
-              <div>Size:
-                <input onChange={ (e) => this.handleSizeChange(e.target.value) }></input>
-              </div>
-              
-              <div>Location:
-                <input onChange={ (e) => this.handleLocationChange(e.target.value) }></input>
-              </div>
-              
-              <button onClick={ this.addNewPainting }>Submit</button>
+              <div>Title:</div>
+              <input onChange={ (e) => this.handleTitleChange(e.target.value) }></input>
             </div>
-          </body>
+            
+            <div>Year:
+              <input onChange={ (e) => this.handleYearChange(e.target.value) }></input>
+            </div>
+            
+            <div>Size:
+              <input onChange={ (e) => this.handleSizeChange(e.target.value) }></input>
+            </div>
+            
+            <div>Location:
+              <input onChange={ (e) => this.handleLocationChange(e.target.value) }></input>
+            </div>
+            
+            <button className="Button" onClick={ this.addNewPainting }>Submit</button>
+          </div>
+          
         </div>
       </div>
     );
