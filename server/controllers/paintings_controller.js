@@ -5,8 +5,8 @@ module.exports = {
     console.log(title, year, size, location);
 
     db.add_painting([ title, year, size, location ])
-    .then( () => res.status(200).send() )
-    .then( () => res.status(500).send() );
+      .then( () => res.status(200).send() )
+      .then( () => res.status(500).send() );
   },
 
   getOne: ( req, res, next ) => {
