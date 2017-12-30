@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Home from './Home';
-import Biography from './Biography';
-import Paintings from './Paintings';
-import About from './About';
-import Credits from './Credits';
-import Admin from './Admin';
+import Home from './components/Home';
+import Biography from './components/Biography';
+import Paintings from './components/Paintings';
+import About from './components/About';
+import Credits from './components/Credits';
+import Admin from './components/Admin';
+import NotFound from './components/NotFound';
 
 export default (
   <Switch>
@@ -15,5 +16,6 @@ export default (
     <Route path="/about" component={ About }/>
     <Route path="/credits" component={ Credits }/>
     <Route path="/admin" component={ Admin }/>
+    <Route path="*" component={ NotFound }/>
   </Switch>
 )
