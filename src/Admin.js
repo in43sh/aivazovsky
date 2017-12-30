@@ -59,13 +59,15 @@ class Admin extends Component {
           <div className="Admin-header">
             <h2>Admin</h2>
           </div>
+          <div></div>
+
           <div className="Add-painting-div">
             <div>Please enter the information about the painting:</div>
             <br />
 
             <div>
-              <div>Title:</div>
-              <input onChange={ (e) => this.handleTitleChange(e.target.value) }></input>
+              <div className="Div-input-title">Title:</div>
+              <input className="Div-input" onChange={ (e) => this.handleTitleChange(e.target.value) }></input>
             </div>
             
             <div>Year:
