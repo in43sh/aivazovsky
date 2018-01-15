@@ -22,8 +22,10 @@ massive( process.env.CONNECTION_STRING ).then( db => app.set('db', db) );
 app.post('/api/add', paintings_controller.add_painting);
 app.get('/api/painting/:id', paintings_controller.getOne);
 app.get('/api/paintings', paintings_controller.getAll);
+app.get('/api/genre=:genre', paintings_controller.getByGenre);
+app.get('/api/search', paintings_controller.search);
 app.put('/api/painting/:id', paintings_controller.update);
-app.delete('/api/painting/:id', paintings_controller.delete);
+app.delete('/api/painting/:id', paintings_controller.destroy);
 
 // Connecting our port
 const port = process.env.PORT || 3333;
