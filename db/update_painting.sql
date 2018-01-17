@@ -1,1 +1,1 @@
-UPDATE aivazovsky SET location = $2 WHERE id = $1;
+UPDATE aivazovsky SET title = $2 WHERE id = $1;

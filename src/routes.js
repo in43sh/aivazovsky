@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
 import Biography from './components/Biography';
@@ -8,6 +8,10 @@ import Credits from './components/Credits';
 import Admin from './components/Admin';
 import NotFound from './components/NotFound';
 
+import AddNewPainting from './components/AddNewPainting';
+import UpdatePainting from './components/UpdatePainting';
+import DestroyPainting from './components/DestroyPainting';
+
 export default (
   <Switch>
     <Route exact path="/" component={ Home } />
@@ -16,6 +20,11 @@ export default (
     <Route path="/about" component={ About }/>
     <Route path="/credits" component={ Credits }/>
     <Route path="/admin" component={ Admin }/>
+
+    <Route path="/add" component={ AddNewPainting } />
+    <Route path="/update" component={ UpdatePainting } />
+    <Route path="/destroy" component={ DestroyPainting } />
+    
     <Route path="*" component={ NotFound }/>
   </Switch>
 )

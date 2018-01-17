@@ -72,8 +72,8 @@ export default class AddNewPainting extends Component {
 
   render() {
     return (
-      <div className="Admin">
-        <div className="Add-painting-div">
+      <div>
+        <div className="Admin-input-form">
           <div>Please enter the information about the painting:</div>
           <br />
 
@@ -101,7 +101,7 @@ export default class AddNewPainting extends Component {
             <input placeholder="URL:" className="div-input"  onChange={ (e) => this.handleUrlChange(e.target.value) }></input>
           </div>
           
-          <button className="Button"  onClick={ this.addNewPainting }>Submit</button>
+          <button className="admin-button"  onClick={ this.addNewPainting }>Submit</button>
         </div>
       </div>
     );

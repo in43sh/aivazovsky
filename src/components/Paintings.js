@@ -17,7 +17,7 @@ class Paintings extends Component {
   }
 
   componentDidMount () {
-    const paintingsFromContoller = axios.get(`http://localhost:3333/api/paintings`)
+    axios.get(`http://localhost:3333/api/paintings`)
     .then((response) => {
       this.setPaintings(response.data)
       console.log(this.state.paintings);
@@ -39,7 +39,7 @@ class Paintings extends Component {
   }
 
   getPaintings() {
-    const paintingsFromContoller = axios.get(`http://localhost:3333/api/paintings`)
+    axios.get(`http://localhost:3333/api/paintings`)
     .then((response) => {
       this.setPaintings(response.data)
       // console.log(this.state.paintings);
@@ -50,7 +50,7 @@ class Paintings extends Component {
   }
 
   getPaintingsByGenre(str) {
-    const paintingsFromContoller = axios.get(`http://localhost:3333/api/genre=${str}`)
+    axios.get(`http://localhost:3333/api/genre=${str}`)
     .then((response) => {
       this.setPaintings(response.data)
       // console.log(this.state.paintings);
@@ -72,8 +72,8 @@ class Paintings extends Component {
         <button onClick={ this.getPaintings }>clear</button>
         <br />
         <br />
-        // think about separating search by title and filter by genre so that if we have some value in the search input field,
-        // we still would be able to filter by genre
+        {/* think about separating search by title and filter by genre so that if we have some value in the search input field,
+        we still would be able to filter by genre */}
         <input placeholder="search..." onChange={ (e) => this.handleSearchChange(e.target.value) }></input>
         
         <ShowPaintings

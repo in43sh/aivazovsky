@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 
 export default class ShowPaintings extends Component {
   constructor() {
@@ -24,8 +23,8 @@ export default class ShowPaintings extends Component {
     .map((element, index) => {
       return (
         <div className="painting" key={ index }>
-          <div className="img-div">
-            <img src={ element.url }/>
+          <div className="painting-img-div">
+            <img src={ element.url } alt={ element.title }/>
           </div>
           <div className="info-div">
             <span>Title: { element.title }</span>

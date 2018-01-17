@@ -34,16 +34,15 @@ module.exports = {
 
     // how do we write a function to work with it here
     db.read_all_paintings()
-      .then ( (paintings) => res.status(200).send( paintings ))
+      .then ( ( paintings ) => res.status(200).send( paintings ))
       .catch( () => res.status(500).send() );
   },
 
   getAll: ( req, res, next ) => {
     const db = req.app.get('db');
-    const { params } = req;
 
     db.read_all_paintings()
-      .then( paintings => res.status(200).send( paintings ) )
+      .then( ( paintings ) => res.status(200).send( paintings ) )
       .catch( () => res.status(500).send() );
   },
 
@@ -51,7 +50,7 @@ module.exports = {
     const db = req.app.get('db');
     const { params, query } = req; 
 
-    db.update_painting([ params.id, query.desc ])
+    db.update_painting([ params.id, params.desc ])
       .then( () => res.status(200).send() )
       .catch( () => res.status(500).send() );
   },
@@ -62,7 +61,7 @@ module.exports = {
     const { params } = req;
 
     db.delete_painting([ params.id ])
-      .then( () => res.status(200).send() )
+      .then( ( paintings ) => res.status(200).send( paintings ) )
       .catch( () => res.status(500).send() );
   }
 };

@@ -14,7 +14,8 @@ export default class App extends Component {
             <Link to="/biography" className="links">Biography</Link>
             <Link to="/paintings" className="links">Paintings</Link>
             <Link to="/about" className="links">About</Link>
-            <Link to="/credits" className="links">Credits</Link>
+            {/* <Link to="/credits" className="links">Credits</Link> */}
+            <Link to="/admin" className="links">Admin</Link>
           </div>
         </nav>
         { routes }
