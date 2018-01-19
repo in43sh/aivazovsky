@@ -1,10 +1,10 @@
 module.exports = {
   add_painting: (req, res, next) => {
     const db = req.app.get('db');
-    const { title, year, dimensions, genre, location, url } = req.body;
-    console.log(title, year, dimensions, genre, location, url);
+    const { title, year, dimensions, genre, url } = req.body;
+    console.log(title, year, dimensions, genre, url);
 
-    db.add_painting([ title, year, dimensions, genre, location, url ])
+    db.add_painting([ title, year, dimensions, genre, url ])
       .then( () => res.status(200).send() )
       .then( () => res.status(500).send() );
   },

@@ -10,7 +10,6 @@ export default class AddNewPainting extends Component {
       yearInput: '',
       dimensionsInput: '',
       genreInput: '',
-      locationInput: '',
       urlInput: ''
     }
     this.addNewPainting  = this.addNewPainting.bind(this);
@@ -18,7 +17,6 @@ export default class AddNewPainting extends Component {
     this.handleYearChange = this.handleYearChange.bind(this);
     this.handleDimensionsChange = this.handleDimensionsChange.bind(this);
     this.handleGenreChange = this.handleGenreChange.bind(this);
-    this.handleLocationChange = this.handleLocationChange.bind(this);
     this.handleUrlChange = this.handleUrlChange.bind(this);
   }
 
@@ -43,11 +41,6 @@ export default class AddNewPainting extends Component {
     console.log('dimensions ' + this.state.dimensionsInput);
   }
 
-  handleLocationChange(val) {
-    this.setState({ locationInput: val})
-    console.log('location ' + this.state.locationInput);
-  }
-
   handleUrlChange(val) {
     this.setState({ urlInput: val})
     console.log('url ' + this.state.urlInput);
@@ -59,7 +52,6 @@ export default class AddNewPainting extends Component {
       year: this.state.yearInput,
       dimensions: this.state.dimensionsInput,
       genre: this.state.genreInput,
-      location: this.state.locationInput,
       url: this.state.urlInput
     })
     .then((response) => {
@@ -91,10 +83,6 @@ export default class AddNewPainting extends Component {
 
           <div>
             <input placeholder="Genre:" className="div-input"  onChange={ (e) => this.handleGenreChange(e.target.value) }></input>
-          </div>
-          
-          <div>
-            <input placeholder="Location:" className="div-input"  onChange={ (e) => this.handleLocationChange(e.target.value) }></input>
           </div>
 
           <div>
