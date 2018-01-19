@@ -37,12 +37,18 @@ body {
 }
 
 /* Admin page */
+.login-main-container {
+  display: flex; 
+  justify-content: center; 
+}
+
 .Admin-header {
   background-color: #222;
   height: 80px;
   padding: 20px;
   color: white;
 }
+
 
 .Admin-input-form {
   width: 400px;

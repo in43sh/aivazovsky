@@ -13,7 +13,7 @@ class Biography extends Component {
           <div className="Biography-child-container-body">
             <div className="portrait-wrapper">
               <div>
-                <img src="https://usw2-uploads7.wikiart.org/images/ivan-aivazovsky.jpg!Portrait.jpg" className="img-wrapper" />
+                <img src="https://usw2-uploads7.wikiart.org/images/ivan-aivazovsky.jpg!Portrait.jpg" alt="portrait of Ivan Aivazovsky" className="img-wrapper" />
               </div>
               <div className="portrait-desc">
                 <span>Portrait of Ivan Aivazovsky - Aleksey Tyranov</span>

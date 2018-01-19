@@ -11,6 +11,7 @@ import NotFound from './components/NotFound';
 import AddNewPainting from './components/AddNewPainting';
 import UpdatePainting from './components/UpdatePainting';
 import DestroyPainting from './components/DestroyPainting';
+import AdminDashboard from './components/AdminDashboard';
 
 export default (
   <Switch>
@@ -20,6 +21,7 @@ export default (
     <Route path="/about" component={ About }/>
     <Route path="/credits" component={ Credits }/>
     <Route path="/admin" component={ Admin }/>
+    <Route path="/dashboard" component={ AdminDashboard }/>
 
     <Route path="/add" component={ AddNewPainting } />
     <Route path="/update" component={ UpdatePainting } />

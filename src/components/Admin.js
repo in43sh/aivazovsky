@@ -1,47 +1,78 @@
 import React, { Component } from 'react';
-
-import AddNewPainting from './AddNewPainting';
-import UpdatePainting from './UpdatePainting';
-import DestroyPainting from './DestroyPainting';
+import axios from 'axios';
+import { connect } from 'react-redux';
+import { login } from '../ducks/reducer';
+import { Link } from 'react-router-dom';
+// import { Route } from 'react-router-dom';
+// import AdminDashboard from './AdminDashboard';
 
 class Admin extends Component {
   constructor () {
     super();
     this.state = {
-      view: 'add'
+      userInput: '',
+      passInput: '',
+      message: ''
     }
-    this.changeView = this.changeView.bind(this)
+    this.handleUserChange = this.handleUserChange.bind(this)
+    this.handlePassChange = this.handlePassChange.bind(this)
+    this.login = this.login.bind(this)
   }
 
-  changeView(str) {
-    if ( str === 'update' ) {
-      this.setState({ view: 'update' })
-    } else if ( str === 'destroy' ) {
-      this.setState({ view: 'destroy' })
-    } else this.setState({ view: 'add' })
+  handleUserChange(val) {
+    this.setState({ userInput: val })
   }
+
+  handlePassChange(val) {
+    this.setState({ passInput: val })
+  }
+
+  login() {
+    const username = this.state.userInput
+    const password = this.state.passInput
+    axios.post(`http://localhost:3333/login`, {
+      username,
+      password
+    }).then(response => {
+      console.log(response.data)
+      this.props.login(response.data.user)
+      console.log('you are in')
+    }).catch(error => {
+      console.log(error)
+    })
+  }
+
+
 
   render() {
     return (
       <div>
         <div>
           <h2 className="Title">Admin</h2>
-          <button onClick={ () => {this.changeView('add')} }>add</button>
-          <button onClick={ () => {this.changeView('update')} }>update</button>
-          <button onClick={ () => {this.changeView('destroy')} }>destroy</button>
 
+          <div className="login-main-container">
+            <div>
+              <input ref="username" onChange={ (e) => this.handleUserChange(e.target.value) } />
+              <input type="password" ref="password" onChange={ (e) => this.handlePassChange(e.target.value) } />
+            </div>
+            <br />
+            
+            <div>
+              {/* <button onClick={ this.login }>login</button> */}
+              <Link to="/dashboard"><button onClick={ this.login }>login</button></Link>
+              
+            </div>
+          </div>
 
-          {
-            this.state.view === 'add' 
-            ? <AddNewPainting />
-            : this.state.view === 'update'
-              ? <UpdatePainting />
-              : <DestroyPainting />
-          }
+          {/* <Route path="/dashboard" component={ AdminDashboard }/> */}
         </div>
       </div>
     );
   }
 }
 
-export default Admin;
+const mapDispatchToProps = {
+  login: login
+}
+
+export default connect(null, mapDispatchToProps)(Admin);
