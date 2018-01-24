@@ -25,7 +25,10 @@ export default class UpdatePainting extends Component {
   }
 
   updatePainting() {
-    axios.put(`http://localhost:3333/api/painting/${this.state.idInput}/${this.state.dataInput}`)
+    let myObj = {
+      data: this.state.dataInput
+    }
+    axios.put(`/api/painting/${this.state.idInput}`, myObj)
     .then((response) => {
       console.log(response)
     })

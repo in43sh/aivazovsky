@@ -12,42 +12,36 @@ export default class AddNewPainting extends Component {
       genreInput: '',
       urlInput: ''
     }
-    this.addNewPainting  = this.addNewPainting.bind(this);
-    this.handleTitleChange = this.handleTitleChange.bind(this);
-    this.handleYearChange = this.handleYearChange.bind(this);
-    this.handleDimensionsChange = this.handleDimensionsChange.bind(this);
-    this.handleGenreChange = this.handleGenreChange.bind(this);
-    this.handleUrlChange = this.handleUrlChange.bind(this);
   }
 
-
-  handleTitleChange(val) {
+  handleTitleChange = (val) => {
     this.setState({ titleInput: val})
     console.log('title ' + this.state.titleInput);
   }
 
-  handleYearChange(val) {
+  handleYearChange = (val) => {
     this.setState({ yearInput: val})
     console.log('year ' + this.state.yearInput);
   }
 
-  handleGenreChange(val) {
+  handleGenreChange = (val) => {
     this.setState({ genreInput: val})
     console.log('genre ' + this.state.genreInput);
   }
 
-  handleDimensionsChange(val) {
+  handleDimensionsChange = (val) => {
     this.setState({ dimensionsInput: val})
     console.log('dimensions ' + this.state.dimensionsInput);
   }
 
-  handleUrlChange(val) {
+  handleUrlChange = (val) => {
     this.setState({ urlInput: val})
     console.log('url ' + this.state.urlInput);
   }
 
-  addNewPainting() {
-    axios.post(`http://localhost:3333/api/add`, {
+  addNewPainting = () => {
+    const adminId = 
+    axios.post(`/api/add`, {
       title: this.state.titleInput,
       year: this.state.yearInput,
       dimensions: this.state.dimensionsInput,
@@ -88,6 +82,11 @@ export default class AddNewPainting extends Component {
           <div>
             <input placeholder="URL:" className="div-input"  onChange={ (e) => this.handleUrlChange(e.target.value) }></input>
           </div>
+
+          {/* this.setState() */}
+          {/* <div>
+            <input placeholder="URL:" className="div-input"  onChange={ (e) => this.setState(e.target.value) }></input>
+          </div> */}
           
           <button className="admin-button"  onClick={ this.addNewPainting }>Submit</button>
         </div>

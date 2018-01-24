@@ -12,6 +12,7 @@ import AddNewPainting from './components/AddNewPainting';
 import UpdatePainting from './components/UpdatePainting';
 import DestroyPainting from './components/DestroyPainting';
 import AdminDashboard from './components/AdminDashboard';
+import Uploader from './components/Uploader';
 
 export default (
   <Switch>
@@ -23,9 +24,11 @@ export default (
     <Route path="/admin" component={ Admin }/>
     <Route path="/dashboard" component={ AdminDashboard }/>
 
-    <Route path="/add" component={ AddNewPainting } />
+    <Route pноath="/add" component={ AddNewPainting } />
     <Route path="/update" component={ UpdatePainting } />
     <Route path="/destroy" component={ DestroyPainting } />
+
+    <Route path="/uploader" component={ Uploader }/>
     
     <Route path="*" component={ NotFound }/>
   </Switch>

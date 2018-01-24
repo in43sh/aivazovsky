@@ -1,1 +1,1 @@
-DELETE FROM aivazovsky WHERE id = $1;
+DELETE FROM aivazovsky WHERE paintingId = $1;

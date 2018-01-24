@@ -19,7 +19,7 @@ class AdminDashboard extends Component {
   }
 
   logout() {
-    axios.post('http://localhost:3333/logout').then(response => {
+    axios.post('/logout').then(response => {
       this.props.login(null)
       console.log('you are out')
     }).catch(error => {

@@ -17,7 +17,7 @@ class Paintings extends Component {
   }
 
   componentDidMount () {
-    axios.get(`http://localhost:3333/api/paintings`)
+    axios.get(`/api/paintings`)
     .then((response) => {
       this.setPaintings(response.data)
       console.log(this.state.paintings);
@@ -39,7 +39,7 @@ class Paintings extends Component {
   }
 
   getPaintings() {
-    axios.get(`http://localhost:3333/api/paintings`)
+    axios.get(`/api/paintings`)
     .then((response) => {
       this.setPaintings(response.data)
       // console.log(this.state.paintings);
@@ -50,7 +50,7 @@ class Paintings extends Component {
   }
 
   getPaintingsByGenre(str) {
-    axios.get(`http://localhost:3333/api/genre=${str}`)
+    axios.get(`/api/genre=${str}`)
     .then((response) => {
       this.setPaintings(response.data)
       // console.log(this.state.paintings);

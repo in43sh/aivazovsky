@@ -20,6 +20,7 @@ module.exports = {
     const db = req.app.get('db');
     const { username, password } = req.body;
     db.find_user([username]).then(users => {
+      console.log(users)
       if (users.length) {
         bcrypt.compare(password, users[0].password).then(passwordMatch => {
           if (passwordMatch) {

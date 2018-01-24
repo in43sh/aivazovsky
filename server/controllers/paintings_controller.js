@@ -6,7 +6,7 @@ module.exports = {
 
     db.add_painting([ title, year, dimensions, genre, url ])
       .then( () => res.status(200).send() )
-      .then( () => res.status(500).send() );
+      .catch( (paintings) => res.status(500).send(paintings) );
   },
 
   getOne: ( req, res, next ) => {
@@ -48,9 +48,11 @@ module.exports = {
 
   update: ( req, res, next ) => {
     const db = req.app.get('db');
-    const { params, query } = req; 
+    const { params, body } = req; 
+    console.log(params, body);
 
-    db.update_painting([ params.id, params.desc ])
+
+    db.update_painting([ params.id, body.data ])
       .then( () => res.status(200).send() )
       .catch( () => res.status(500).send() );
   },

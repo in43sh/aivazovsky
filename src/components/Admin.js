@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { login } from '../ducks/reducer';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 // import { Route } from 'react-router-dom';
 // import AdminDashboard from './AdminDashboard';
 
@@ -30,12 +30,14 @@ class Admin extends Component {
   login() {
     const username = this.state.userInput
     const password = this.state.passInput
-    axios.post(`http://localhost:3333/login`, {
+    console.log('hello')
+    axios.post(`/login`, {
       username,
       password
     }).then(response => {
-      console.log(response.data)
+      console.log('response.data ->', response.data)
       this.props.login(response.data.user)
+      this.props.history.push('/dashboard');
       console.log('you are in')
     }).catch(error => {
       console.log(error)
@@ -58,13 +60,10 @@ class Admin extends Component {
             <br />
             
             <div>
-              {/* <button onClick={ this.login }>login</button> */}
-              <Link to="/dashboard"><button onClick={ this.login }>login</button></Link>
-              
+              <button onClick={ this.login }>submit</button>
+              {/* <Link to="/dashboard"><button onClick={ this.login }>login</button></Link> */}
             </div>
           </div>
-
-          {/* <Route path="/dashboard" component={ AdminDashboard }/> */}
         </div>
       </div>
     );

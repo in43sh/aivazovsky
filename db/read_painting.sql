@@ -1,1 +1,1 @@
-SELECT * FROM aivazovsky WHERE id = $1;
+SELECT * FROM aivazovsky WHERE paintingId = $1;

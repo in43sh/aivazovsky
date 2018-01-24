@@ -2,22 +2,55 @@
 const express = require ('express');
 const bodyParser = require ('body-parser');
 const session = require ('express-session');
-const cors = require ('cors');
 const massive = require ('massive');
-const bcrypt = require ('bcrypt');
 
+const bcrypt = require ('bcrypt');
 const saltRound = 12;
 
+const multer =  require('multer');
+const AWS = require('aws-sdk');
+
+const app = express();
+
+// here we're importing .env file
 require('dotenv').config();
 
 // Controllers
 const paintings_controller = require('./controllers/paintings_controller');
 const users_controller = require('./controllers/users_controller');
 
-const app = express();
+// AWS declare
+// use region only if you want to get something from AWS
+// see https://stackoverflow.com/a/26284339/5184474
+AWS.config.update({
+  accessKeyId: process.env.ACCESS_KEY_ID,
+  secretAccessKey: process.env.SECRET_ACCESS_KEY,
+  region: process.env.REGION
+});
+const s3 = new AWS.S3();
+const upload = multer({
+  storage: multer.memoryStorage(),
+  limits: {
+    fileSize: 52428800
+  }
+})
+// AWS Upload
+app.post('/api/upload', upload.single('painting'), (req, res) => {
+  s3.putObject({
+      Bucket: 'aivazovsky-img',
+      Key: req.file.originalname, 
+      Body: req.file.buffer,
+      ContentType: "image/png",
+      ACL: 'public-read'
+    }, (err) => { 
+      console.log(err);
+      if (err) return res.status(400).send(err);
+      res.send('File uploaded to S3');
+  })
+})
 
 app.use( bodyParser.json() );
-app.use( cors() );
+
 app.use( session({
   secret: process.env.SECRET,
   saveUninitialized: false,
@@ -39,7 +72,7 @@ app.get('/api/painting/:id', paintings_controller.getOne);
 app.get('/api/paintings', paintings_controller.getAll);
 app.get('/api/genre=:genre', paintings_controller.getByGenre);
 app.get('/api/search', paintings_controller.search);
-app.put('/api/painting/:id/:desc', paintings_controller.update);
+app.put('/api/painting/:id', paintings_controller.update);
 app.delete('/api/delete/:id', paintings_controller.destroy);
 
 // Connecting our port

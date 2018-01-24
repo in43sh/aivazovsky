@@ -1,9 +1,11 @@
+// initial state
 const initialState = {
   user: null
 }
-
+// action type 
 const LOGIN = 'LOGIN';
 
+// action creator
 export const login = (user) => {
   return {
     type: LOGIN,
@@ -11,6 +13,7 @@ export const login = (user) => {
   };
 };
 
+// reducer
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case LOGIN:

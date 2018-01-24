@@ -16,8 +16,8 @@ export default class DestroyPainting extends Component {
     this.setState({ idInput: val })
   }
 
-  destroyPainting(id) {
-    axios.delete(`http://localhost:3333/api/delete/${this.state.idInput}`)
+  destroyPainting() {
+    axios.delete(`/api/delete/${this.state.idInput}`)
     .then((response) => {
       console.log(response)
     })
