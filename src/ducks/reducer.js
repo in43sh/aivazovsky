@@ -1,15 +1,23 @@
 // initial state
 const initialState = {
-  user: null
+  user: null,
+  url: null
 }
 // action type 
 const LOGIN = 'LOGIN';
+const URLSEND = 'URLSEND';
 
-// action creator
+// action creators
 export const login = (user) => {
   return {
     type: LOGIN,
     payload: user
+  };
+};
+export const urlsend = (url) => {
+  return {
+    type: URLSEND,
+    payload: url
   };
 };
 
@@ -20,6 +28,12 @@ const reducer = (state = initialState, action) => {
       return {
         ...state, user: action.payload
       };
+
+    case URLSEND:
+      return {
+        ...state, url: action.payload
+      };
+
     default: return state;
   }
 }

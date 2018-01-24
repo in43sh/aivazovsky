@@ -34,19 +34,22 @@ const upload = multer({
     fileSize: 52428800
   }
 })
+
 // AWS Upload
 app.post('/api/upload', upload.single('painting'), (req, res) => {
-  s3.putObject({
-      Bucket: 'aivazovsky-img',
-      Key: req.file.originalname, 
-      Body: req.file.buffer,
-      ContentType: "image/png",
-      ACL: 'public-read'
-    }, (err) => { 
-      console.log(err);
-      if (err) return res.status(400).send(err);
-      res.send('File uploaded to S3');
+  var params = {
+    Bucket: process.env.BUCKET,
+    Key: req.file.originalname, 
+    Body: req.file.buffer,
+    ContentType: "image/png",
+    ACL: 'public-read'
+  }
+  s3.putObject(params, (err) => { 
+    console.log(err);
+    if (err) return res.status(400).send(err);
   })
+  var imageUrl = 'https://s3.amazonaws.com/' + params.Bucket + '/'+ params.Key
+  res.status(200).send(imageUrl);
 })
 
 app.use( bodyParser.json() );

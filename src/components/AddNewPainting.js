@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-export default class AddNewPainting extends Component {
+import { connect } from 'react-redux';
+import { urlsend } from '../ducks/reducer';
+
+import Uploader from './Uploader';
+
+class AddNewPainting extends Component {
   constructor() {
     super();
 
@@ -40,13 +45,14 @@ export default class AddNewPainting extends Component {
   }
 
   addNewPainting = () => {
-    const adminId = 
+    const { url } = this.props; // destructuring object from Redux
+
     axios.post(`/api/add`, {
       title: this.state.titleInput,
       year: this.state.yearInput,
       dimensions: this.state.dimensionsInput,
       genre: this.state.genreInput,
-      url: this.state.urlInput
+      url: url // from Redux
     })
     .then((response) => {
       console.log(response);
@@ -57,6 +63,8 @@ export default class AddNewPainting extends Component {
   }
 
   render() {
+    
+
     return (
       <div>
         <div className="Admin-input-form">
@@ -79,18 +87,20 @@ export default class AddNewPainting extends Component {
             <input placeholder="Genre:" className="div-input"  onChange={ (e) => this.handleGenreChange(e.target.value) }></input>
           </div>
 
-          <div>
-            <input placeholder="URL:" className="div-input"  onChange={ (e) => this.handleUrlChange(e.target.value) }></input>
-          </div>
+          {/* uploads image to AWS when file is dropped there */}
+          <Uploader /> 
 
-          {/* this.setState() */}
-          {/* <div>
-            <input placeholder="URL:" className="div-input"  onChange={ (e) => this.setState(e.target.value) }></input>
-          </div> */}
-          
           <button className="admin-button"  onClick={ this.addNewPainting }>Submit</button>
         </div>
       </div>
     );
   }
 }
+
+const mapStateToProps = state =>  {
+  return {
+    url: state.url
+  };
+};
+
+export default connect (mapStateToProps, null)(AddNewPainting);

@@ -44,8 +44,7 @@ class AdminDashboard extends Component {
   }
 
   render() {
-    const { user } = this.props;
-    console.log(this.props);
+    const { user } = this.props; // destructuring object from Redux
 
     return (
       <div>
