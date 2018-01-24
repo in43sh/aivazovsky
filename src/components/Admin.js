@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { login } from '../ducks/reducer';
-// import { Link } from 'react-router-dom';
-// import { Route } from 'react-router-dom';
-// import AdminDashboard from './AdminDashboard';
 
 class Admin extends Component {
   constructor () {
@@ -14,17 +11,7 @@ class Admin extends Component {
       passInput: '',
       message: ''
     }
-    this.handleUserChange = this.handleUserChange.bind(this)
-    this.handlePassChange = this.handlePassChange.bind(this)
     this.login = this.login.bind(this)
-  }
-
-  handleUserChange(val) {
-    this.setState({ userInput: val })
-  }
-
-  handlePassChange(val) {
-    this.setState({ passInput: val })
   }
 
   login() {
@@ -52,8 +39,8 @@ class Admin extends Component {
 
           <div className="login-main-container">
             <div>
-              <input ref="username" onChange={ (e) => this.handleUserChange(e.target.value) } />
-              <input type="password" ref="password" onChange={ (e) => this.handlePassChange(e.target.value) } />
+              <input ref="username" onChange={ (e) => this.setState({ userInput: e.target.value }) } />
+              <input type="password" ref="password" onChange={ (e) => this.setState({ passInput: e.target.value }) } />
             </div>
             <br />
             

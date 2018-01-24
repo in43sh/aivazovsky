@@ -9,19 +9,7 @@ export default class UpdatePainting extends Component {
       idInput: '',
       dataInput: ''
     }
-    this.handleIdChange = this.handleIdChange.bind(this)
-    this.handleDataChange = this.handleDataChange.bind(this)
     this.updatePainting = this.updatePainting.bind(this)
-  }
-
-  handleIdChange(val) {
-    this.setState({ idInput: val })
-    console.log('id ->  ' + this.state.idInput)
-  }
-
-  handleDataChange(val) {
-    this.setState({ dataInput: val })
-    console.log('data ->  ' + this.state.dataInput)
   }
 
   updatePainting() {
@@ -42,8 +30,8 @@ export default class UpdatePainting extends Component {
       <div>
         <div className="Admin-input-form">
           <div>Update:</div>
-          <input className="div-input" placeholder="id" onChange={ (e) => this.handleIdChange(e.target.value) }></input>
-          <input className="div-input" placeholder="data" onChange={ (e) => this.handleDataChange(e.target.value) }></input>
+          <input className="div-input" placeholder="id" onChange={ (e) => this.setState({ idInput: e.target.value }) }></input>
+          <input className="div-input" placeholder="data" onChange={ (e) => this.setState({ dataInput: e.target.value }) }></input>
 
           <button className="admin-button" onClick={ this.updatePainting }>update</button>
         </div>

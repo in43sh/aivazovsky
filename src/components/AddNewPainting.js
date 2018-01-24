@@ -6,6 +6,12 @@ import { urlsend } from '../ducks/reducer';
 
 import Uploader from './Uploader';
 
+//////////////////////////////////////////////////////////////////////////////
+// This component adds new painting to the database. It includes handling
+// the information put in the input fields and a separate Upload component
+// that handles uploading file to the AWS account and puts the image URL
+// to the Redux Store.
+//////////////////////////////////////////////////////////////////////////////
 class AddNewPainting extends Component {
   constructor() {
     super();
@@ -17,31 +23,6 @@ class AddNewPainting extends Component {
       genreInput: '',
       urlInput: ''
     }
-  }
-
-  handleTitleChange = (val) => {
-    this.setState({ titleInput: val})
-    console.log('title ' + this.state.titleInput);
-  }
-
-  handleYearChange = (val) => {
-    this.setState({ yearInput: val})
-    console.log('year ' + this.state.yearInput);
-  }
-
-  handleGenreChange = (val) => {
-    this.setState({ genreInput: val})
-    console.log('genre ' + this.state.genreInput);
-  }
-
-  handleDimensionsChange = (val) => {
-    this.setState({ dimensionsInput: val})
-    console.log('dimensions ' + this.state.dimensionsInput);
-  }
-
-  handleUrlChange = (val) => {
-    this.setState({ urlInput: val})
-    console.log('url ' + this.state.urlInput);
   }
 
   addNewPainting = () => {
@@ -63,8 +44,6 @@ class AddNewPainting extends Component {
   }
 
   render() {
-    
-
     return (
       <div>
         <div className="Admin-input-form">
@@ -72,19 +51,19 @@ class AddNewPainting extends Component {
           <br />
 
           <div>
-              <input placeholder="Title:" className="div-input" onChange={ (e) => this.handleTitleChange(e.target.value) }></input>
+            <input placeholder="Title:" className="div-input" onChange={ (e) => this.setState({ titleInput: e.target.value }) }></input>
           </div>
           
           <div>
-            <input placeholder="Year:" className="div-input"  onChange={ (e) => this.handleYearChange(e.target.value) }></input>
+            <input placeholder="Year:" className="div-input"  onChange={ (e) => this.setState({ yearInput: e.target.value }) }></input>
           </div>
           
           <div>
-            <input placeholder="Dimensions:" className="div-input"  onChange={ (e) => this.handleDimensionsChange(e.target.value) }></input>
+            <input placeholder="Dimensions:" className="div-input"  onChange={ (e) => this.setState({ dimensionsInput: e.target.value }) }></input>
           </div>
 
           <div>
-            <input placeholder="Genre:" className="div-input"  onChange={ (e) => this.handleGenreChange(e.target.value) }></input>
+            <input placeholder="Genre:" className="div-input"  onChange={ (e) => this.setState({ genreInput: e.target.value }) }></input>
           </div>
 
           {/* uploads image to AWS when file is dropped there */}

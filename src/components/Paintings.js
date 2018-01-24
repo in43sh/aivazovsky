@@ -10,7 +10,6 @@ class Paintings extends Component {
       paintings: [],
       searchInput: ''
     }
-    this.handleSearchChange = this.handleSearchChange.bind(this)
     this.setPaintings = this.setPaintings.bind(this)
     this.getPaintings = this.getPaintings.bind(this)
     this.getPaintingsByGenre = this.getPaintingsByGenre.bind(this)
@@ -27,11 +26,6 @@ class Paintings extends Component {
     })
     // {this.getPaintingsByGenre('seascape')}
     // {this.getPaintingsByGenre('marina')}
-  }
-
-  handleSearchChange(val) {
-    this.setState({ searchInput: val })
-    console.log('search input >>>' + this.state.searchInput)
   }
 
   setPaintings(paintingsArray) {
@@ -74,7 +68,7 @@ class Paintings extends Component {
         <br />
         {/* think about separating search by title and filter by genre so that if we have some value in the search input field,
         we still would be able to filter by genre */}
-        <input placeholder="search..." onChange={ (e) => this.handleSearchChange(e.target.value) }></input>
+        <input placeholder="search..." onChange={ (e) => this.setState({ searchInput: e.target.value }) }></input>
         
         <ShowPaintings
           SearchResults = { this.state.paintings }

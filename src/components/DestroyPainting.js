@@ -8,14 +8,9 @@ export default class DestroyPainting extends Component {
     this.state = {
       idInput: ''
     }
-    this.handleIdChange = this.handleIdChange.bind(this)
     this.destroyPainting = this.destroyPainting.bind(this)
   }
-
-  handleIdChange(val) {
-    this.setState({ idInput: val })
-  }
-
+  
   destroyPainting() {
     axios.delete(`/api/delete/${this.state.idInput}`)
     .then((response) => {
@@ -31,7 +26,7 @@ export default class DestroyPainting extends Component {
       <div>
         <div className="Admin-input-form">
           <div>Please enter the id of the painting you want to delete</div>
-          <input className="div-input" placeholder="Title:" onChange={ (e) => this.handleIdChange(e.target.value) }></input>
+          <input className="div-input" placeholder="Title:" onChange={ (e) => this.setState({ idInput: e.target.value }) }></input>
           <button className="admin-button" onClick={ this.destroyPainting }>delete</button>
         </div>
       </div>

@@ -34,6 +34,7 @@ class Uploader extends Component {
             <div>Drop a file here, or click to select a file to upload.</div>
             {/* <div>{this.state.url}</div> */}
           </Dropzone>
+          {/* think how to make it the actual link. the <Link> is not working for some reason */}
           <div>{this.state.url}</div>
         </div>
     );
