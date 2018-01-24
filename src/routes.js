@@ -24,7 +24,7 @@ export default (
     <Route path="/admin" component={ Admin }/>
     <Route path="/dashboard" component={ AdminDashboard }/>
 
-    <Route pноath="/add" component={ AddNewPainting } />
+    <Route path="/add" component={ AddNewPainting } />
     <Route path="/update" component={ UpdatePainting } />
     <Route path="/destroy" component={ DestroyPainting } />
 
