@@ -87,6 +87,11 @@ app.get('/api/paintings', paintings_controller.getAll);
 app.put('/api/painting/:id', paintings_controller.update);
 app.delete('/api/delete/:id', paintings_controller.destroy);
 
+const path = require('path')
+app.get('*', (req, res)=>{
+  res.sendFile(path.join(__dirname, '../build/index.html'));
+})
+
 // Connecting our port
 const port = process.env.PORT || 3333;
 app.listen( port, () => { console.log(`Server listening on port ${port}.`); } );
