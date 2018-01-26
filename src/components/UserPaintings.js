@@ -9,26 +9,14 @@ class UserPaintings extends Component {
     super();
 
     this.state = {
-      userId: '',
+      // userId: '',
       userPaintings: []
     }
   }
 
-  componentDidMount() {
-    const { user } = this.props;
-    console.log('user.username -> ', user.username)
-    axios.get(`/api/getUserId/${user.username}`)
-    .then((response) => {
-      this.setState({ userId: response.data[0].userid })
-      console.log('userId -> ', this.state.userId);
-    })
-    .catch((error) => {
-      console.log(error)
-    })
-  }
 
   showUserPaintings = () => {
-    axios.get(`/api/paintings/${ this.state.userId }`)
+    axios.get(`/api/paintings/${ this.props.user }`)
     .then((response) => {
       this.setState({ userPaintings: response.data })
       console.log('userPaintings -> ', this.state.userPaintings);
@@ -70,10 +58,4 @@ class UserPaintings extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    user: state.user
-  };
-};
-
-export default connect (mapStateToProps, null)(UserPaintings);
+export default UserPaintings;

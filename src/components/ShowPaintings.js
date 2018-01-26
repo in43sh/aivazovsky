@@ -38,7 +38,6 @@ export default class ShowPaintings extends Component {
         </div>
       )
     })
-    // console.log(displayArray)
 
     return (
       <div className="display-paintings">

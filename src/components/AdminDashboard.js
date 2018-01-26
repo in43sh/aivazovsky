@@ -13,7 +13,8 @@ class AdminDashboard extends Component {
   constructor () {
     super();
     this.state = {
-      view: 'add'
+      view: 'add',
+      userId: ''
     }
     this.changeView = this.changeView.bind(this)
     this.logout = this.logout.bind(this)
@@ -28,11 +29,23 @@ class AdminDashboard extends Component {
     })
   }
 
-  componentDidMount() {
+  componentWillMount() {
     axios.get('/user-data').then(response => {
       if (response.data.user) {
         this.props.login(response.data.user);
       }
+    })
+  }
+
+  componentDidMount() {
+    console.log('user.username -> ', this.props.user.username)
+    axios.get(`/api/getUserId/${this.props.user.username}`)
+    .then((response) => {
+      this.setState({ userId: response.data[0].userid })
+      console.log('userId -> ', this.state.userId);
+    })
+    .catch((error) => {
+      console.log(error)
     })
   }
 
@@ -59,12 +72,12 @@ class AdminDashboard extends Component {
 
             {
               this.state.view === 'add' 
-              ? <AddNewPainting />
+              ? <AddNewPainting user={ this.state.userId }/>
               : this.state.view === 'update'
                 ? <UpdatePainting />
                 : <DestroyPainting />
             }
-            <UserPaintings />
+            <UserPaintings user={ this.state.userId } />
           </div>}
           {!user && <p>You mush log in! <Link to="/admin">Log in</Link></p>}
           

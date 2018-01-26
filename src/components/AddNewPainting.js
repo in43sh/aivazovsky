@@ -26,23 +26,10 @@ class AddNewPainting extends Component {
     }
   }
 
-  componentWillMount() {
-    const { user } = this.props;
-    console.log('user.username -> ', user.username)
-    axios.get(`/api/getUserId/${user.username}`)
-    .then((response) => {
-      this.setState({ userId: response.data[0].userid })
-      console.log('userId -> ', this.state.userId);
-    })
-    .catch((error) => {
-      console.log(error)
-    })
-  }
-
   addNewPainting = () => {
     const { url } = this.props; // destructuring object from Redux
     axios.post('/api/add', {
-      userid: this.state.userId,
+      userid: this.props.user,
       title: this.state.titleInput,
       year: this.state.yearInput,
       dimensions: this.state.dimensionsInput,
@@ -90,11 +77,4 @@ class AddNewPainting extends Component {
   }
 }
 
-const mapStateToProps = state =>  {
-  return {
-    url: state.url,
-    user: state.user
-  };
-};
-
-export default connect (mapStateToProps, null)(AddNewPainting);
+export default AddNewPainting;
