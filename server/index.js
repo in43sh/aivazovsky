@@ -12,6 +12,10 @@ const AWS = require('aws-sdk');
 
 const app = express();
 
+app.use( bodyParser.json() );
+
+app.use( express.static( `${__dirname}/../build` ) );
+
 // here we're importing .env file
 require('dotenv').config();
 
@@ -44,6 +48,9 @@ app.post('/api/upload', upload.single('painting'), (req, res) => {
     ContentType: "image/png",
     ACL: 'public-read'
   }
+  // s3.putObject() puts the image to the AWS bucket. If the file is already there
+  // it won't give any error, just make view that file is uploaded again though
+  // it just checked if it's in there
   s3.putObject(params, (err) => { 
     console.log(err);
     if (err) return res.status(400).send(err);
@@ -52,7 +59,7 @@ app.post('/api/upload', upload.single('painting'), (req, res) => {
   res.status(200).send(imageUrl);
 })
 
-app.use( bodyParser.json() );
+
 
 app.use( session({
   secret: process.env.SECRET,
@@ -68,13 +75,15 @@ app.post('/register', users_controller.register);
 app.post('/login', users_controller.login);
 app.post('/logout', users_controller.logout);
 app.get('/user-data', users_controller.getUserData);
+app.get('/api/getUserId/:user', users_controller.getUserId)
 
 // Paintings management
 app.post('/api/add', paintings_controller.add_painting);
 app.get('/api/painting/:id', paintings_controller.getOne);
-app.get('/api/paintings', paintings_controller.getAll);
 app.get('/api/genre=:genre', paintings_controller.getByGenre);
 app.get('/api/search', paintings_controller.search);
+app.get('/api/paintings/:user', paintings_controller.getByUser);
+app.get('/api/paintings', paintings_controller.getAll);
 app.put('/api/painting/:id', paintings_controller.update);
 app.delete('/api/delete/:id', paintings_controller.destroy);
 

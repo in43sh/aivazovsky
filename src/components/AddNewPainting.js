@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import { connect } from 'react-redux';
-import { urlsend } from '../ducks/reducer';
+// import { urlsend, user } from '../ducks/reducer';
 
 import Uploader from './Uploader';
 
@@ -17,6 +17,7 @@ class AddNewPainting extends Component {
     super();
 
     this.state = {
+      userId: '',
       titleInput: '',
       yearInput: '',
       dimensionsInput: '',
@@ -25,10 +26,23 @@ class AddNewPainting extends Component {
     }
   }
 
+  componentWillMount() {
+    const { user } = this.props;
+    console.log('user.username -> ', user.username)
+    axios.get(`/api/getUserId/${user.username}`)
+    .then((response) => {
+      this.setState({ userId: response.data[0].userid })
+      console.log('userId -> ', this.state.userId);
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  }
+
   addNewPainting = () => {
     const { url } = this.props; // destructuring object from Redux
-
-    axios.post(`/api/add`, {
+    axios.post('/api/add', {
+      userid: this.state.userId,
       title: this.state.titleInput,
       year: this.state.yearInput,
       dimensions: this.state.dimensionsInput,
@@ -78,7 +92,8 @@ class AddNewPainting extends Component {
 
 const mapStateToProps = state =>  {
   return {
-    url: state.url
+    url: state.url,
+    user: state.user
   };
 };
 

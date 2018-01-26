@@ -17,12 +17,11 @@ class Admin extends Component {
   login() {
     const username = this.state.userInput
     const password = this.state.passInput
-    console.log('hello')
     axios.post(`/login`, {
       username,
       password
     }).then(response => {
-      console.log('response.data ->', response.data)
+      // console.log('response.data ->', response.data)
       this.props.login(response.data.user)
       this.props.history.push('/dashboard');
       console.log('you are in')

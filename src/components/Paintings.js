@@ -24,8 +24,6 @@ class Paintings extends Component {
     .catch((error) => {
       console.log(error);
     })
-    // {this.getPaintingsByGenre('seascape')}
-    // {this.getPaintingsByGenre('marina')}
   }
 
   setPaintings(paintingsArray) {

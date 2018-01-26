@@ -7,6 +7,7 @@ import { login } from '../ducks/reducer';
 import AddNewPainting from './AddNewPainting';
 import UpdatePainting from './UpdatePainting';
 import DestroyPainting from './DestroyPainting';
+import UserPaintings from './UserPaintings';
 
 class AdminDashboard extends Component {
   constructor () {
@@ -63,8 +64,10 @@ class AdminDashboard extends Component {
                 ? <UpdatePainting />
                 : <DestroyPainting />
             }
+            <UserPaintings />
           </div>}
           {!user && <p>You mush log in! <Link to="/admin">Log in</Link></p>}
+          
         </div>
       </div>
     );

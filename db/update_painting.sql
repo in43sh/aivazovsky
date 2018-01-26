@@ -1,1 +1,1 @@
-UPDATE aivazovsky SET title = $2 WHERE paintingId = $1;
+UPDATE aivazovsky SET title = $2 WHERE paintingid = $1;
