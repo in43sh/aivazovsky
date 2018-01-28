@@ -6,7 +6,6 @@ class UserPaintings extends Component {
     super();
 
     this.state = {
-      // userId: '',
       userPaintings: []
     }
   }

@@ -3,7 +3,7 @@ import Dropzone from 'react-dropzone';
 import request  from 'superagent';
 
 import { connect } from 'react-redux';
-import { urlsend } from '../redux/ducks/reducer';
+import { urlsend } from '../../redux/ducks/reducer';
 
 class Uploader extends Component {
   constructor() {

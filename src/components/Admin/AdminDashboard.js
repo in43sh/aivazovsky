@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { login } from '../redux/ducks/reducer';
+import { login } from '../../redux/ducks/reducer';
 
 import AddNewPainting from './AddNewPainting';
 import UpdatePainting from './UpdatePainting';
