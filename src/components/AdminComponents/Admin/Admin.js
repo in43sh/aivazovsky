@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import './Admin.css';
+
 import { connect } from 'react-redux';
-import { login } from '../../redux/ducks/reducer'
+import { login } from '../../../redux/ducks/reducer'
 
 class Admin extends Component {
   constructor () {
@@ -32,23 +34,22 @@ class Admin extends Component {
 
   render() {
     return (
-      <div>
-        <div>
-          <h2 className="Title">Admin</h2>
-
+      <div className="login-main">
           <div className="login-main-container">
-            <div>
-              <input ref="username" onChange={ (e) => this.setState({ userInput: e.target.value }) } />
-              <input type="password" ref="password" onChange={ (e) => this.setState({ passInput: e.target.value }) } />
-            </div>
-            <br />
-            
-            <div>
-              <button onClick={ this.login }>submit</button>
-              {/* <Link to="/dashboard"><button onClick={ this.login }>login</button></Link> */}
+            <div className="info-input">
+              <div className="input-data">
+                <input placeholder="username" ref="username" onChange={ (e) => this.setState({ userInput: e.target.value }) } />
+              </div>
+
+              <div className="input-data">
+                <input placeholder="password" type="password" ref="password" onChange={ (e) => this.setState({ passInput: e.target.value }) } />
+              </div>
+
+              <div className="btn">
+                <button onClick={ this.login }>submit</button>
+              </div>
             </div>
           </div>
-        </div>
       </div>
     );
   }

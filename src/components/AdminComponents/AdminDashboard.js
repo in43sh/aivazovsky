@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { login } from '../../redux/ducks/reducer';
 
+
 import AddNewPainting from './AddNewPainting';
 import UpdatePainting from './UpdatePainting';
 import DestroyPainting from './DestroyPainting';
@@ -63,7 +64,6 @@ class AdminDashboard extends Component {
     return (
       <div>
         <div>
-          <h2 className="Title">Admin</h2>
           {user && <div>
             <Link to="/admin"><button onClick={ this.logout }>logout</button></Link>
             <button onClick={ () => {this.changeView('add')} }>add</button>

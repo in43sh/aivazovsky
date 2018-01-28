@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './ShowPaintings.css';
 
 export default class ShowPaintings extends Component {
   constructor() {

@@ -1,0 +1,29 @@
+.navigation {
+  font-size: 24px;
+  padding: 25px 50px;
+  /* font-family: 'Crimson Text', serif; */
+  display: flex;
+  justify-content: space-between;
+  /* border-bottom: solid 1 px #222; */
+  background: #29BDB3;
+  color: white;
+  height: 35px;
+}
+
+.link-wrap {
+  display: flex;
+}
+
+.links {
+  margin-right: 50px;
+  text-decoration: none;
+  color: white;
+}
+
+.page {
+  background-color: aqua;
+}
+
+.Title {
+  text-align: center;
+}

@@ -2,20 +2,18 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Home from './components/Home/Home';
 import Biography from './components/Biography/Biography';
-import Paintings from './components/Paintings/Paintings';
+import Paintings from './components/PaintingsComponents/Paintings/Paintings';
 import About from './components/About/About';
 import Credits from './components/Credits/Credits';
-import Admin from './components/Admin/Admin';
+import Admin from './components/AdminComponents/Admin/Admin';
 import NotFound from './components/NotFound/NotFound';
 
-import AddNewPainting from './components/Admin/AddNewPainting';
-import UpdatePainting from './components/Admin/UpdatePainting';
-import DestroyPainting from './components/Admin/DestroyPainting';
-import AdminDashboard from './components/Admin/AdminDashboard';
-
-import UserPaintings from './components/Admin/UserPaintings';
-
-import Uploader from './components/Admin/Uploader';
+import AddNewPainting from './components/AdminComponents/AddNewPainting';
+import UpdatePainting from './components/AdminComponents/UpdatePainting';
+import DestroyPainting from './components/AdminComponents/DestroyPainting';
+import AdminDashboard from './components/AdminComponents/AdminDashboard';
+import UserPaintings from './components/AdminComponents/UserPaintings';
+import Uploader from './components/AdminComponents/Uploader';
 
 import SlideShow from './components/SlideShow/SlideShow';
 

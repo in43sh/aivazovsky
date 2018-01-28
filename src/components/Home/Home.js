@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SlideShow from '../SlideShow/SlideShow';
 
 class Home extends Component {
   constructor() {
@@ -14,7 +15,7 @@ class Home extends Component {
   render() {
     return (
       <div className="App">
-        
+        <SlideShow />
       </div>
     );
   }

@@ -44,7 +44,7 @@ class AddNewPainting extends Component {
   render() {
     return (
       <div>
-        <div className="Admin-input-form">
+        <div className="admin-input-form">
           <div>Please enter the information about the painting:</div>
           <br />
 

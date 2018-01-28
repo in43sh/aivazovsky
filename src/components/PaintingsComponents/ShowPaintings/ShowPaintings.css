@@ -1,0 +1,26 @@
+.painting {
+  padding: 10px;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: space-between;
+}
+
+.info-div {
+  padding: 10px;
+  width: 300px;
+}
+
+.painting-img-div {
+  width: 690px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+}
+
+.painting-img-div > img {
+  height: 300px;
+}

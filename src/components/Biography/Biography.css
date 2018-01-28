@@ -1,0 +1,30 @@
+.Biography-parent-container {
+  width: 100%;
+  display: flex; 
+  justify-content: center; 
+}
+
+.Biography-child-container {
+  width: 700px;
+}
+
+.Biography-child-container-body {
+  width: 90%;
+}
+
+.portrait-wrapper {
+  float: left;
+  padding: 5px;
+}
+
+.portrait-desc {
+  color: #91a4b6;
+}
+
+.biography-content {
+  line-height: 150%;
+}
+
+.Biography-top {
+  padding: 10px;
+}

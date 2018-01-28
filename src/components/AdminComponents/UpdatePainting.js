@@ -28,7 +28,7 @@ export default class UpdatePainting extends Component {
   render() {
     return (
       <div>
-        <div className="Admin-input-form">
+        <div className="admin-input-form">
           <div>Update:</div>
           <input className="div-input" placeholder="id" onChange={ (e) => this.setState({ idInput: e.target.value }) }></input>
           <input className="div-input" placeholder="data" onChange={ (e) => this.setState({ dataInput: e.target.value }) }></input>

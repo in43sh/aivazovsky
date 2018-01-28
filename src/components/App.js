@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import './App.css';
+
 import routes from '../routes';
 
 export default class App extends Component {
@@ -10,15 +12,16 @@ export default class App extends Component {
           <Link to="/" className="links"><div>Aivazovsky</div></Link>
           
           <div className="link-wrap">
-            {/* <Link to="/" className="links">Home</Link> */}
-            {/* <Link to="/credits" className="links">Credits</Link> */}
             <Link to="/biography" className="links">Biography</Link>
             <Link to="/paintings" className="links">Paintings</Link>
             <Link to="/about" className="links">About</Link>
             <Link to="/admin" className="links">Admin</Link>
           </div>
         </nav>
-        { routes }
+
+        <div className="page">
+          { routes }
+        </div>
       </div>
     )
   }
