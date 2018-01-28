@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
 
-
 class Home extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+
+    }
+
+  }
+
+
   render() {
     return (
       <div className="App">
-        <h2>Welcome to the home page</h2>
+        
       </div>
     );
   }

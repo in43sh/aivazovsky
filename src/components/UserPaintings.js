@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import { connect } from 'react-redux';
-// import { user } from '../ducks/reducer';
-
 class UserPaintings extends Component {
   constructor() {
     super();
@@ -16,7 +13,7 @@ class UserPaintings extends Component {
 
 
   showUserPaintings = () => {
-    axios.get(`/api/paintings/${ this.props.user }`)
+    axios.get(`/api/paintings/user=${ this.props.user }`)
     .then((response) => {
       this.setState({ userPaintings: response.data })
       console.log('userPaintings -> ', this.state.userPaintings);

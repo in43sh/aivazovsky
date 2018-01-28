@@ -17,6 +17,8 @@ import UserPaintings from './components/UserPaintings';
 
 import Uploader from './components/Uploader';
 
+import SlideShow from './components/SlideShow';
+
 export default (
   <Switch>
     <Route exact path="/" component={ Home } />
@@ -31,9 +33,11 @@ export default (
     <Route path="/update" component={ UpdatePainting } />
     <Route path="/destroy" component={ DestroyPainting } />
 
-    <Route path="/user_paintings" component={ UserPaintings } />>
+    <Route path="/user_paintings" component={ UserPaintings } />
 
     <Route path="/uploader" component={ Uploader }/>
+
+    <Route path="/slideshow" component={ SlideShow }/>
     
     <Route path="*" component={ NotFound }/>
   </Switch>

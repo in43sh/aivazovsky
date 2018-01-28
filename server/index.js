@@ -79,12 +79,13 @@ app.get('/api/getUserId/:user', users_controller.getUserId)
 
 // Paintings management
 app.post('/api/add', paintings_controller.add_painting);
-app.get('/api/painting/:id', paintings_controller.getOne);
+app.get('/api/painting/id=:id', paintings_controller.getOne);
 app.get('/api/genre=:genre', paintings_controller.getByGenre);
 app.get('/api/search', paintings_controller.search);
-app.get('/api/paintings/:user', paintings_controller.getByUser);
+app.get('/api/paintings/user=:user', paintings_controller.getByUser);
+app.get('/api/slideshow', paintings_controller.getSlideShow);
 app.get('/api/paintings', paintings_controller.getAll);
-app.put('/api/painting/:id', paintings_controller.update);
+app.put('/api/update/:id', paintings_controller.update);
 app.delete('/api/delete/:id', paintings_controller.destroy);
 
 const path = require('path')

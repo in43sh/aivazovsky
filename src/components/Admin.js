@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import { login } from '../ducks/reducer'
+import { login } from '../redux/ducks/reducer'
 
 class Admin extends Component {
   constructor () {

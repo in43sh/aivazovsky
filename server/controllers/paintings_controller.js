@@ -42,9 +42,17 @@ module.exports = {
     const db = req.app.get('db');
     const { params } = req;
 
-    db.read_paintings_of_user()
+    db.read_paintings_of_user([ params.user ])
       .then( (paintings) => res.status(200).send( paintings ) )
       .catch( () => res.status(500).send() );
+  },
+
+  getSlideShow: (req, res, next) => {
+    const db = req.app.get('db');
+
+    db.read_slideshow()
+      .then( (paintings) => res.status(200).send( paintings ) )
+      .catch( () => res.status(500).send() )
   },
 
   getAll: ( req, res, next ) => {

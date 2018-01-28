@@ -10,9 +10,6 @@ class Paintings extends Component {
       paintings: [],
       searchInput: ''
     }
-    this.setPaintings = this.setPaintings.bind(this)
-    this.getPaintings = this.getPaintings.bind(this)
-    this.getPaintingsByGenre = this.getPaintingsByGenre.bind(this)
   }
 
   componentDidMount () {
@@ -26,11 +23,11 @@ class Paintings extends Component {
     })
   }
 
-  setPaintings(paintingsArray) {
+  setPaintings = (paintingsArray) => {
     this.setState({paintings: paintingsArray}) 
   }
 
-  getPaintings() {
+  getPaintings = () => {
     axios.get(`/api/paintings`)
     .then((response) => {
       this.setPaintings(response.data)
@@ -41,7 +38,7 @@ class Paintings extends Component {
     })
   }
 
-  getPaintingsByGenre(str) {
+  getPaintingsByGenre = (str) => {
     axios.get(`/api/genre=${str}`)
     .then((response) => {
       this.setPaintings(response.data)
