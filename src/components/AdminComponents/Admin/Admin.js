@@ -30,14 +30,10 @@ class Admin extends Component {
       username,
       password
     }).then(response => {
-      if (response.data.status === 200) {
-        console.log('response ->', response)
-        this.props.login(response.data.user)
-        this.props.history.push('/dashboard');
-        console.log('you are in')
-      } else if (response.data.status === 403) {
-        console.log('Check the login and password')
-      }
+      console.log('response ->', response)
+      this.props.login(response.data.user)
+      this.props.history.push('/dashboard');
+      console.log('you are in')
     }).catch(error => {
       console.log(error.response)
       console.log(error.response.data.message)
@@ -49,8 +45,6 @@ class Admin extends Component {
       console.log(this.state.errorMessage);
     })
   }
-
-
 
   render() {
     return (
