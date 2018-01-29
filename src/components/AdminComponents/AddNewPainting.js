@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
+import { urlsend } from '../../redux/ducks/reducer';
 
 import Uploader from './Uploader/Uploader';
 
@@ -25,13 +27,14 @@ class AddNewPainting extends Component {
 
   addNewPainting = () => {
     const { url } = this.props; // destructuring object from Redux
+    console.log(this.props)
     axios.post('/api/add', {
       userid: this.props.user,
       title: this.state.titleInput,
       year: this.state.yearInput,
       dimensions: this.state.dimensionsInput,
       genre: this.state.genreInput,
-      url: url // from Redux
+      url: this.props.url // from Redux
     })
     .then((response) => {
       console.log(response);
@@ -75,4 +78,10 @@ class AddNewPainting extends Component {
   }
 }
 
-export default AddNewPainting;
+const mapStateToProps = state => {
+  return {
+    url: state.url
+  }
+}
+
+export default connect(mapStateToProps, null)(AddNewPainting);

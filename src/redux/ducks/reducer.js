@@ -29,9 +29,6 @@ const reducer = (state = initialState, action) => {
     case LOGIN:
       return { ...state, user: action.payload };
 
-    // case REFRESH_USER:
-    //   return payload;
-
     case URLSEND:
       return { ...state, url: action.payload };
 
