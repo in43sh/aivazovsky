@@ -50,27 +50,17 @@ class Paintings extends Component {
     })
   }
 
-  // orderYearAsc = () => {
-  //   let current_paintings = {
-  //     data: this.state.paintings
-  //   }
-  //   console.log(this.state.paintings);
-  //   console.log('hereeee');
-  //   axios.get('/api/order-by-year-asc', current_paintings)
-  //   .then((response) => {
-  //     console.log('response ->', response);
-  //     console.log('response.data ->', response.data);
-  //     this.setPaintings(response.data)
-  //   })
-  //   .catch((error) => {
-  //     console.log(error);
-  //   })
-  // }
-  // orderYearAsc = () => {
-  //   const copyArray = this.state.paintings;
+  orderYearAsc = () => {
+    const copyArray = this.state.paintings;
+    copyArray.sort( (a, b) => a.year - b.year);
+    this.setState({paintings: copyArray})
+  }
 
-  //   copyArray.sort( (a, b) => a.year > b.year);
-  // }
+  orderYearDesc = () => {
+    const copyArray = this.state.paintings;
+    copyArray.sort( (a, b) => b.year - a.year);
+    this.setState({paintings: copyArray})
+  }
 
   render() {
     return (
@@ -85,6 +75,7 @@ class Paintings extends Component {
             <button className="paintings-menu-btns"  onClick={ () => {this.getPaintingsByGenre('landscape')} }>landscape</button>
             <button className="paintings-menu-btns"  onClick={ () => {this.getPaintingsByGenre('cityscape')} }>cityscape</button>
             <button className="paintings-menu-btns"  onClick={ this.orderYearAsc }>order by year ↑</button>
+            <button className="paintings-menu-btns"  onClick={ this.orderYearDesc }>order by year ↓</button>
             <button className="paintings-menu-btns"  onClick={ this.getPaintings }>clear filters</button>
           </div>
           

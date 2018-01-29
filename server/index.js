@@ -88,8 +88,6 @@ app.get('/api/paintings', paintings_controller.getAll);
 app.put('/api/update/:id', paintings_controller.update);
 app.delete('/api/delete/:id', paintings_controller.destroy);
 
-// app.get('/api/order-by-year-asc', paintings_controller.getByYearAsc);
-
 // Production
 app.get('*', (req, res)=>{
   res.sendFile(path.join(__dirname, '../build/index.html'));

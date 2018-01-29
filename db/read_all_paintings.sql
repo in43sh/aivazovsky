@@ -1,1 +1,2 @@
-SELECT * FROM aivazovsky;
+SELECT * FROM aivazovsky
+ORDER BY title ASC;
