@@ -9,10 +9,9 @@ export default class UpdatePainting extends Component {
       idInput: '',
       dataInput: ''
     }
-    this.updatePainting = this.updatePainting.bind(this)
   }
 
-  updatePainting() {
+  updatePainting = () => {
     let myObj = {
       data: this.state.dataInput
     }

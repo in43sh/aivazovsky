@@ -76,7 +76,6 @@ app.post('/login', users_controller.login);
 app.post('/logout', users_controller.logout);
 app.get('/user-data', users_controller.getUserData);
 app.get('/api/getUserId/:user', users_controller.getUserId)
-// app.get('/api/keep-session', users_controller.keepSession);
 
 // Paintings management
 app.post('/api/add', paintings_controller.add_painting);
@@ -88,6 +87,8 @@ app.get('/api/slideshow', paintings_controller.getSlideShow);
 app.get('/api/paintings', paintings_controller.getAll);
 app.put('/api/update/:id', paintings_controller.update);
 app.delete('/api/delete/:id', paintings_controller.destroy);
+
+// app.get('/api/order-by-year-asc', paintings_controller.getByYearAsc);
 
 // Production
 app.get('*', (req, res)=>{

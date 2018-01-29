@@ -3,11 +3,12 @@
   padding: 25px 50px;
   /* font-family: 'Crimson Text', serif; */
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   /* border-bottom: solid 1 px #222; */
   background: #29BDB3;
   color: white;
-  height: 35px;
+  /* height: 35px; */
 }
 
 .link-wrap {
@@ -16,6 +17,7 @@
 
 .links {
   margin-right: 50px;
+  /* padding: 5px; */
   text-decoration: none;
   color: white;
 }

@@ -1,4 +1,4 @@
-/* .paintings-parent-container {
+.paintings-parent-container {
   display: flex;
   justify-content: center;
 }
@@ -13,16 +13,41 @@
   display: flex;
 	flex-direction: column;
 	flex-wrap: nowrap;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: baseline;
   align-content: stretch;
-  width: 20%;
+  width: 15%;
 }
 
 .showpaintings-put-in-paintings-container {
-  width: 60%;
+  width: 80%;
 }
 
 .paintings-empty-container {
-  width: 10%;
-} */
+  width: 5%;
+}
+
+.paintings-menu-btns {
+  width: 100%;
+  font: 15px arial, sans-serif;
+  background-color: rgba(52, 189, 180, 0.699);
+  color: white;
+  padding: 10px 10px;
+  border-top: none;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.paintings-menu-search-input {
+  width: 100%;
+  font: 15px arial, sans-serif;
+  color: black;
+  padding: 10px 10px;
+  border-top: none;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+  box-sizing: border-box;
+}

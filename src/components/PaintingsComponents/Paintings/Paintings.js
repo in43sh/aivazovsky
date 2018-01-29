@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import './Paintings.css';
 import ShowPaintings from '../ShowPaintings/ShowPaintings';
 
 class Paintings extends Component {
@@ -49,6 +50,28 @@ class Paintings extends Component {
     })
   }
 
+  // orderYearAsc = () => {
+  //   let current_paintings = {
+  //     data: this.state.paintings
+  //   }
+  //   console.log(this.state.paintings);
+  //   console.log('hereeee');
+  //   axios.get('/api/order-by-year-asc', current_paintings)
+  //   .then((response) => {
+  //     console.log('response ->', response);
+  //     console.log('response.data ->', response.data);
+  //     this.setPaintings(response.data)
+  //   })
+  //   .catch((error) => {
+  //     console.log(error);
+  //   })
+  // }
+  // orderYearAsc = () => {
+  //   const copyArray = this.state.paintings;
+
+  //   copyArray.sort( (a, b) => a.year > b.year);
+  // }
+
   render() {
     return (
       <div className="paintings-parent-container">
@@ -56,12 +79,13 @@ class Paintings extends Component {
           <div className="paintings-menu-container">
             {/* think about separating search by title and filter by genre so that if we have some value in the search input field,
               we still would be able to filter by genre */}
-            <input placeholder="search..." onChange={ (e) => this.setState({ searchInput: e.target.value }) }></input>
+            <input className="paintings-menu-search-input" placeholder="search..." onChange={ (e) => this.setState({ searchInput: e.target.value }) }></input>
             <button className="paintings-menu-btns"  onClick={ () => {this.getPaintingsByGenre('battle')} }>battle paintings</button>
             <button className="paintings-menu-btns"  onClick={ () => {this.getPaintingsByGenre('marina')} }>marina</button>
             <button className="paintings-menu-btns"  onClick={ () => {this.getPaintingsByGenre('landscape')} }>landscape</button>
             <button className="paintings-menu-btns"  onClick={ () => {this.getPaintingsByGenre('cityscape')} }>cityscape</button>
-            <button className="paintings-menu-btns"  onClick={ this.getPaintings }>clear</button>
+            <button className="paintings-menu-btns"  onClick={ this.orderYearAsc }>order by year ↑</button>
+            <button className="paintings-menu-btns"  onClick={ this.getPaintings }>clear filters</button>
           </div>
           
           <div className="showpaintings-put-in-paintings-container">

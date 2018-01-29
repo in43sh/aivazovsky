@@ -4,16 +4,18 @@
   justify-content: center; 
 }
 
-.biography-child-container {
+/* .biography-child-container {
   width: 700px;
-}
+} */
 
 .biography-child-container-body {
   width: 90%;
+  display: flex;
+	flex-direction: row;
 }
 
 .portrait-wrapper {
-  float: left;
+
   padding: 5px;
 }
 

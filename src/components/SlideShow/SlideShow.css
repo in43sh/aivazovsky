@@ -1,5 +1,13 @@
+.slideshow-parent-container {
+  width: 100%;
+}
+
+.slideshow-child-container {
+  width: 0%;
+}
+
 .slideshow-img-container>img {
-  margin: 50px;
+  margin-top: 30px;
   height: 100%;
 }
 
@@ -8,4 +16,10 @@
   justify-content: center;
   margin: 0 auto;
   height: 500px;
+}
+
+.slick-arrow,
+.slick-prev:before,
+.slick-next:before {
+  color: blue;
 }

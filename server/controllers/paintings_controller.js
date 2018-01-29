@@ -47,6 +47,20 @@ module.exports = {
       .catch( () => res.status(500).send() );
   },
 
+  // getByYearAsc: (res, req, next) => {
+  //   const db = req.app.get('db');
+  //   const { body } = req;
+  //   console.log(req);
+  //   console.log('here here');
+
+  //   db.read_current_paintings_year_asc([body.data])
+  //     .then( (paintings) => {
+  //       console.log(paintings);
+  //       res.status(200).send(paintings)
+  //     } )
+  //     .catch( () => res.status(500).send() );
+  // },
+
   getSlideShow: (req, res, next) => {
     const db = req.app.get('db');
 

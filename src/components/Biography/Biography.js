@@ -17,7 +17,7 @@ class Biography extends Component {
                 <img src="https://usw2-uploads7.wikiart.org/images/ivan-aivazovsky.jpg!Portrait.jpg" alt="portrait of Ivan Aivazovsky" className="img-wrapper" />
               </div>
               <div className="portrait-desc">
-                <span>Portrait of Ivan Aivazovsky - Aleksey Tyranov</span>
+                
               </div>
             </div>
             

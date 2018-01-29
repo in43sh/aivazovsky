@@ -52,10 +52,12 @@ class SlideShow extends Component {
       )
     })
     return (
-      <div className="main-slideshow-container">
-        <Slider {...settings}>
-          { display }
-        </Slider>
+      <div className="slideshow-parent-container">
+
+          <Slider className="slider-compontent" {...settings}>
+            { display }
+          </Slider>
+
       </div>
     );
   }
