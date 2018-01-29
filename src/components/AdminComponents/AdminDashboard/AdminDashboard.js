@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { login } from '../../redux/ducks/reducer';
+import { login } from '../../../redux/ducks/reducer';
+import './AdminDashboard.css';
 
-
-import AddNewPainting from './AddNewPainting';
-import UpdatePainting from './UpdatePainting';
-import DestroyPainting from './DestroyPainting';
-import UserPaintings from './UserPaintings/UserPaintings';
+import AddNewPainting from '../AddNewPainting';
+import UpdatePainting from '../UpdatePainting';
+import DestroyPainting from '../DestroyPainting';
+import UserPaintings from '../UserPaintings/UserPaintings';
 
 class AdminDashboard extends Component {
   constructor () {
@@ -51,7 +51,6 @@ class AdminDashboard extends Component {
         console.log(error)
       })
     }
-    
   }
 
   changeView(str) {
@@ -78,15 +77,17 @@ class AdminDashboard extends Component {
     const { user } = this.props; // destructuring object from Redux
 
     return (
-      <div>
-        <div>
-          {user && <div>
-            <Link to="/admin"><button onClick={ this.logout }>logout</button></Link>
-            <button onClick={ () => {this.changeView('add')} }>add</button>
-            <button onClick={ () => {this.changeView('update')} }>update</button>
-            <button onClick={ () => {this.changeView('destroy')} }>destroy</button>
-            <button onClick={ () => {this.changeView('show')} }>show paintings you uploaded</button>
+      <div className="admin-dashboard-parent-container">
+        {user && <div className="admin-dashboard-child-container">
+          <div className="admin-dashboard-menu-btns-container">
+            <Link className="menu-btns-link" to="/admin"><button className="menu-btns-top" onClick={ this.logout }>logout</button></Link>
+            <button className="menu-btns" onClick={ () => {this.changeView('add')} }>add</button>
+            <button className="menu-btns" onClick={ () => {this.changeView('update')} }>update</button>
+            <button className="menu-btns" onClick={ () => {this.changeView('destroy')} }>destroy</button>
+            <button className="menu-btns" onClick={ () => {this.changeView('show')} }>uploads</button>
+          </div>
 
+          <div className="admin-dashboard-content-container">
             {
               this.state.view === 'add' 
               ? <AddNewPainting user={ this.state.userId }/>
@@ -96,12 +97,12 @@ class AdminDashboard extends Component {
                   ? <DestroyPainting />
                     : <UserPaintings user={ this.state.userId } />
             }
-            
-          </div>}
-          
-          {!user && <p>You must log in! <Link to="/admin">Log in</Link></p>}
-          
-        </div>
+          </div>
+
+          <div className="admin-dashboard-empty-container"></div>
+        </div>}
+
+        {!user && <div className="you-must-log-in-div"><p>You must log in! <Link to="/admin">Log in</Link></p></div>}
       </div>
     );
   }

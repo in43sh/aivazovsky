@@ -18,22 +18,37 @@
   background-color: white;
 }
 
-.info-input {
-	display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-	justify-content: center;
-	align-items: center;
-	align-content: stretch;
-	padding: 20px;
-}
-
-
-.admin-input-form {
+.admin-input-div {
   width: 400px;
   margin: 10px;
   padding: 20px;
   border: 1px solid #222;
 	border-radius: 4px;
 	background-color: rgb(242, 240, 239);
+}
+
+.input-data-field {
+  width: 100%;
+  font: 15px arial, sans-serif;
+  padding: 12px 20px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.submit-btn {
+  width: 100%;
+  font: 15px arial, sans-serif;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #45A049;
 }

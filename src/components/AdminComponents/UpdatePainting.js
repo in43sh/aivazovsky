@@ -28,10 +28,10 @@ export default class UpdatePainting extends Component {
   render() {
     return (
       <div className="admin-main">
-        <div className="admin-input-form">
+        <div className="admin-input-div">
           <div>Update:</div>
-          <input className="div-input" placeholder="id" onChange={ (e) => this.setState({ idInput: e.target.value }) }></input>
-          <input className="div-input" placeholder="data" onChange={ (e) => this.setState({ dataInput: e.target.value }) }></input>
+          <input className="input-data-field" placeholder="id" onChange={ (e) => this.setState({ idInput: e.target.value }) }></input>
+          <input className="input-data-field" placeholder="data" onChange={ (e) => this.setState({ dataInput: e.target.value }) }></input>
 
           <button className="submit-btn" onClick={ this.updatePainting }>update</button>
         </div>

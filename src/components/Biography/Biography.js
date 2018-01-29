@@ -5,13 +5,13 @@ class Biography extends Component {
   render() {
     return (
       <div>
-        <div className="Biography-top">
-          <h1 className="Biography-top-name">Ivan Aivazovsky</h1>
-          <h2 className="Biography-top-other-names">Иван Айвазовский (Հովհաննես Կոստանդինեսի Հայվազյան - Оганес Гайвазян)</h2>
+        <div className="biography-top">
+          <h1 className="biography-top-name">Ivan Aivazovsky</h1>
+          <h2 className="biography-top-other-names">Иван Айвазовский (Հովհաննես Կոստանդինեսի Հայվազյան - Оганес Гайвазян)</h2>
         </div>
 
-        <div className="Biography-parent-container">       
-          <div className="Biography-child-container-body">
+        <div className="biography-parent-container">       
+          <div className="biography-child-container-body">
             <div className="portrait-wrapper">
               <div>
                 <img src="https://usw2-uploads7.wikiart.org/images/ivan-aivazovsky.jpg!Portrait.jpg" alt="portrait of Ivan Aivazovsky" className="img-wrapper" />

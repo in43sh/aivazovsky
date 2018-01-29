@@ -1,0 +1,28 @@
+/* .paintings-parent-container {
+  display: flex;
+  justify-content: center;
+}
+
+.paintings-child-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.paintings-menu-container {
+  display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: baseline;
+  align-content: stretch;
+  width: 20%;
+}
+
+.showpaintings-put-in-paintings-container {
+  width: 60%;
+}
+
+.paintings-empty-container {
+  width: 10%;
+} */

@@ -8,10 +8,10 @@ import Credits from './components/Credits/Credits';
 import Admin from './components/AdminComponents/Admin/Admin';
 import NotFound from './components/NotFound/NotFound';
 
+import AdminDashboard from './components/AdminComponents/AdminDashboard/AdminDashboard';
 import AddNewPainting from './components/AdminComponents/AddNewPainting';
 import UpdatePainting from './components/AdminComponents/UpdatePainting';
 import DestroyPainting from './components/AdminComponents/DestroyPainting';
-import AdminDashboard from './components/AdminComponents/AdminDashboard';
 
 export default (
   <Switch>

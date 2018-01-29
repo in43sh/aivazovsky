@@ -4,7 +4,7 @@ class Credits extends Component {
   render() {
     return (
       <div>
-        <h2 className="Title">Credits</h2>
+        <h2 className="title">Credits</h2>
       </div>
     );
   }

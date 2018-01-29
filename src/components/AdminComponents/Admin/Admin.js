@@ -35,18 +35,16 @@ class Admin extends Component {
   render() {
     return (
       <div className="admin-main">
-          <div className="admin-input-form">
+          <div className="admin-input-div">
+            <div className="input-data">
+              <input className="input-data-field" placeholder="username" ref="username" onChange={ (e) => this.setState({ userInput: e.target.value }) } />
+            </div>
 
-              <div className="input-data">
-                <input className="div-input" placeholder="username" ref="username" onChange={ (e) => this.setState({ userInput: e.target.value }) } />
-              </div>
+            <div className="input-data">
+              <input className="input-data-field"  placeholder="password" type="password" ref="password" onChange={ (e) => this.setState({ passInput: e.target.value }) } />
+            </div>
 
-              <div className="input-data">
-                <input className="div-input"  placeholder="password" type="password" ref="password" onChange={ (e) => this.setState({ passInput: e.target.value }) } />
-              </div>
-
-              <button className="submit-btn" onClick={ this.login }>submit</button>
-
+            <button className="submit-btn" onClick={ this.login }>submit</button>
           </div>
       </div>
     );

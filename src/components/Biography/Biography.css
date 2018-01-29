@@ -1,14 +1,14 @@
-.Biography-parent-container {
+.biography-parent-container {
   width: 100%;
   display: flex; 
   justify-content: center; 
 }
 
-.Biography-child-container {
+.biography-child-container {
   width: 700px;
 }
 
-.Biography-child-container-body {
+.biography-child-container-body {
   width: 90%;
 }
 
@@ -25,6 +25,6 @@
   line-height: 150%;
 }
 
-.Biography-top {
+.biography-top {
   padding: 10px;
 }

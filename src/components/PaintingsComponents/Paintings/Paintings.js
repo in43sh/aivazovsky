@@ -51,24 +51,28 @@ class Paintings extends Component {
 
   render() {
     return (
-      <div>
-        <button onClick={ () => {this.getPaintingsByGenre('battle')} }>battle paintings</button>
-        <button onClick={ () => {this.getPaintingsByGenre('marina')} }>marina</button>
-        <button onClick={ () => {this.getPaintingsByGenre('landscape')} }>landscape</button>
-        <button onClick={ () => {this.getPaintingsByGenre('cityscape')} }>cityscape</button>
-        
-        <br />
-        <button onClick={ this.getPaintings }>clear</button>
-        <br />
-        <br />
-        {/* think about separating search by title and filter by genre so that if we have some value in the search input field,
-        we still would be able to filter by genre */}
-        <input placeholder="search..." onChange={ (e) => this.setState({ searchInput: e.target.value }) }></input>
-        
-        <ShowPaintings
-          SearchResults = { this.state.paintings }
-          SearchInput = { this.state.searchInput }
-        />
+      <div className="paintings-parent-container">
+        <div className="paintings-child-container">
+          <div className="paintings-menu-container">
+            {/* think about separating search by title and filter by genre so that if we have some value in the search input field,
+              we still would be able to filter by genre */}
+            <input placeholder="search..." onChange={ (e) => this.setState({ searchInput: e.target.value }) }></input>
+            <button className="paintings-menu-btns"  onClick={ () => {this.getPaintingsByGenre('battle')} }>battle paintings</button>
+            <button className="paintings-menu-btns"  onClick={ () => {this.getPaintingsByGenre('marina')} }>marina</button>
+            <button className="paintings-menu-btns"  onClick={ () => {this.getPaintingsByGenre('landscape')} }>landscape</button>
+            <button className="paintings-menu-btns"  onClick={ () => {this.getPaintingsByGenre('cityscape')} }>cityscape</button>
+            <button className="paintings-menu-btns"  onClick={ this.getPaintings }>clear</button>
+          </div>
+          
+          <div className="showpaintings-put-in-paintings-container">
+            <ShowPaintings
+              SearchResults = { this.state.paintings }
+              SearchInput = { this.state.searchInput }
+            />
+          </div>
+
+          <div className="paintings-empty-container"></div>
+        </div>
       </div>
     );
   }

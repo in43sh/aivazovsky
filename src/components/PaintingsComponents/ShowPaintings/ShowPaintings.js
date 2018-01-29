@@ -23,11 +23,11 @@ export default class ShowPaintings extends Component {
     })
     .map((element, index) => {
       return (
-        <div className="painting" key={ index }>
-          <div className="painting-img-div">
+        <div className="showpaintings-div" key={ index }>
+          <div className="showpainting-img-div">
             <img src={ element.url } alt={ element.title }/>
           </div>
-          <div className="info-div">
+          <div className="showpainting-info-div">
             <span>Title: { element.title }</span>
             <br />
             <span>Year: { element.year }</span>

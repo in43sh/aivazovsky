@@ -44,23 +44,23 @@ class AddNewPainting extends Component {
   render() {
     return (
       <div className="admin-main">
-        <div className="admin-input-form">
+        <div className="admin-input-div">
           <div>Please enter the information about the painting:</div>
 
           <div>
-            <input placeholder="Title:" className="div-input" onChange={ (e) => this.setState({ titleInput: e.target.value }) }></input>
+            <input placeholder="Title:" className="input-data-field" onChange={ (e) => this.setState({ titleInput: e.target.value }) }></input>
           </div>
           
           <div>
-            <input placeholder="Year:" className="div-input"  onChange={ (e) => this.setState({ yearInput: e.target.value }) }></input>
+            <input placeholder="Year:" className="input-data-field"  onChange={ (e) => this.setState({ yearInput: e.target.value }) }></input>
           </div>
           
           <div>
-            <input placeholder="Dimensions:" className="div-input"  onChange={ (e) => this.setState({ dimensionsInput: e.target.value }) }></input>
+            <input placeholder="Dimensions:" className="input-data-field"  onChange={ (e) => this.setState({ dimensionsInput: e.target.value }) }></input>
           </div>
 
           <div>
-            <input placeholder="Genre:" className="div-input"  onChange={ (e) => this.setState({ genreInput: e.target.value }) }></input>
+            <input placeholder="Genre:" className="input-data-field"  onChange={ (e) => this.setState({ genreInput: e.target.value }) }></input>
           </div>
 
           {/* uploads image to AWS when file is dropped there */}

@@ -28,15 +28,17 @@ class SlideShow extends Component {
     this.setState({paintings: paintingsArray}) 
   }
 
-
   render () {
     const settings = {
       dots: true,
       infinite: true,
       arrows: true,
-      speed: 500,
+      speed: 1700,
       slidesToShow: 1,
-      slidesToScroll: 1
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 3700, // Delay between each auto scroll
+      pauseOnHover: true
     };
 
     const display = this.state.paintings

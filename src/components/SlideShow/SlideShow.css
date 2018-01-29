@@ -1,22 +1,7 @@
-/* .main-slideshow-container {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: center;
-	align-items: center;
-	align-content: stretch;
-} */
-
-/* .slideshow-img-container {
-
-  max-height: 500px;
-}
-*/
-
-.slideshow-img-container > img {
-  
+.slideshow-img-container>img {
+  margin: 50px;
   height: 100%;
-} 
+}
 
 .slideshow-img-container {
   display: flex;
