@@ -27,13 +27,13 @@ export default class UpdatePainting extends Component {
 
   render() {
     return (
-      <div>
+      <div className="admin-main">
         <div className="admin-input-form">
           <div>Update:</div>
           <input className="div-input" placeholder="id" onChange={ (e) => this.setState({ idInput: e.target.value }) }></input>
           <input className="div-input" placeholder="data" onChange={ (e) => this.setState({ dataInput: e.target.value }) }></input>
 
-          <button className="admin-button" onClick={ this.updatePainting }>update</button>
+          <button className="submit-btn" onClick={ this.updatePainting }>update</button>
         </div>
       </div>
     );

@@ -1,3 +1,26 @@
-.slideshow > img {
+/* .main-slideshow-container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: stretch;
+} */
+
+/* .slideshow-img-container {
+
+  max-height: 500px;
+}
+*/
+
+.slideshow-img-container > img {
+  
+  height: 100%;
+} 
+
+.slideshow-img-container {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
   height: 500px;
 }

@@ -1,15 +1,13 @@
-// Connecting all the required packages
 const express = require ('express');
 const bodyParser = require ('body-parser');
 const session = require ('express-session');
 const massive = require ('massive');
-
 const bcrypt = require ('bcrypt');
 const saltRound = 12;
-
 const multer =  require('multer');
 const AWS = require('aws-sdk');
-
+const path = require('path')
+const port = process.env.PORT || 3333;
 const app = express();
 
 app.use( bodyParser.json() );
@@ -24,8 +22,9 @@ const paintings_controller = require('./controllers/paintings_controller');
 const users_controller = require('./controllers/users_controller');
 
 // AWS declare
-// use region only if you want to get something from AWS
-// see https://stackoverflow.com/a/26284339/5184474
+// AWS.config.update should be above declaring s3 variable.
+// Use region only if you want to get something from AWS.
+// See https://stackoverflow.com/a/26284339/5184474
 AWS.config.update({
   accessKeyId: process.env.ACCESS_KEY_ID,
   secretAccessKey: process.env.SECRET_ACCESS_KEY,
@@ -38,7 +37,6 @@ const upload = multer({
     fileSize: 52428800
   }
 })
-
 // AWS Upload
 app.post('/api/upload', upload.single('painting'), (req, res) => {
   var params = {
@@ -59,12 +57,14 @@ app.post('/api/upload', upload.single('painting'), (req, res) => {
   res.status(200).send(imageUrl);
 })
 
-
-
+// Session initialization
 app.use( session({
   secret: process.env.SECRET,
   saveUninitialized: false,
-  resave: false
+  resave: false,
+  cookie: {
+    maxAge: 200 * 1000
+  }
 }) );
 
 // Connecting our .env variable
@@ -76,6 +76,7 @@ app.post('/login', users_controller.login);
 app.post('/logout', users_controller.logout);
 app.get('/user-data', users_controller.getUserData);
 app.get('/api/getUserId/:user', users_controller.getUserId)
+// app.get('/api/keep-session', users_controller.keepSession);
 
 // Paintings management
 app.post('/api/add', paintings_controller.add_painting);
@@ -88,11 +89,10 @@ app.get('/api/paintings', paintings_controller.getAll);
 app.put('/api/update/:id', paintings_controller.update);
 app.delete('/api/delete/:id', paintings_controller.destroy);
 
-const path = require('path')
+// Production
 app.get('*', (req, res)=>{
   res.sendFile(path.join(__dirname, '../build/index.html'));
 })
 
 // Connecting our port
-const port = process.env.PORT || 3333;
 app.listen( port, () => { console.log(`Server listening on port ${port}.`); } );

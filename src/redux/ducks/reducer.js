@@ -14,6 +14,7 @@ export const login = (user) => {
     payload: user
   };
 };
+
 export const urlsend = (url) => {
   return {
     type: URLSEND,
@@ -23,16 +24,16 @@ export const urlsend = (url) => {
 
 // reducer
 const reducer = (state = initialState, action) => {
+  // const { type, payload } = action
   switch (action.type) {
     case LOGIN:
-      return {
-        ...state, user: action.payload
-      };
+      return { ...state, user: action.payload };
+
+    // case REFRESH_USER:
+    //   return payload;
 
     case URLSEND:
-      return {
-        ...state, url: action.payload
-      };
+      return { ...state, url: action.payload };
 
     default: return state;
   }

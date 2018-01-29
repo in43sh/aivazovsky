@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import Dropzone from 'react-dropzone';
 import request  from 'superagent';
+import './Uploader.css';
 
 import { connect } from 'react-redux';
-import { urlsend } from '../../redux/ducks/reducer';
+import { urlsend } from '../../../redux/ducks/reducer';
 
 class Uploader extends Component {
   constructor() {
@@ -30,7 +31,7 @@ class Uploader extends Component {
   render() {
     return (
         <div>
-          <Dropzone onDrop={ this.onDrop } multiple={ false }>
+          <Dropzone className="dropzone" onDrop={ this.onDrop } multiple={ false }>
             <div>Drop a file here, or click to select a file to upload.</div>
             {/* <div>{this.state.url}</div> */}
           </Dropzone>

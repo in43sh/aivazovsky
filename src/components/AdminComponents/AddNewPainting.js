@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import Uploader from './Uploader';
+import Uploader from './Uploader/Uploader';
 
 //////////////////////////////////////////////////////////////////////////////
 // This component adds new painting to the database. It includes handling
@@ -43,10 +43,9 @@ class AddNewPainting extends Component {
 
   render() {
     return (
-      <div>
+      <div className="admin-main">
         <div className="admin-input-form">
           <div>Please enter the information about the painting:</div>
-          <br />
 
           <div>
             <input placeholder="Title:" className="div-input" onChange={ (e) => this.setState({ titleInput: e.target.value }) }></input>
@@ -65,9 +64,11 @@ class AddNewPainting extends Component {
           </div>
 
           {/* uploads image to AWS when file is dropped there */}
-          <Uploader /> 
+          <div>
+            <Uploader /> 
+          </div>
 
-          <button className="admin-button"  onClick={ this.addNewPainting }>Submit</button>
+          <button className="submit-btn"  onClick={ this.addNewPainting }>Submit</button>
         </div>
       </div>
     );

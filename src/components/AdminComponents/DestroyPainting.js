@@ -23,11 +23,11 @@ export default class DestroyPainting extends Component {
 
   render() {
     return (
-      <div>
+      <div className="admin-main">
         <div className="admin-input-form">
           <div>Please enter the id of the painting you want to delete</div>
           <input className="div-input" placeholder="Title:" onChange={ (e) => this.setState({ idInput: e.target.value }) }></input>
-          <button className="admin-button" onClick={ this.destroyPainting }>delete</button>
+          <button className="submit-btn" onClick={ this.destroyPainting }>delete</button>
         </div>
       </div>
     );

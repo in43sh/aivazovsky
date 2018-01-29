@@ -8,7 +8,7 @@ import { login } from '../../redux/ducks/reducer';
 import AddNewPainting from './AddNewPainting';
 import UpdatePainting from './UpdatePainting';
 import DestroyPainting from './DestroyPainting';
-import UserPaintings from './UserPaintings';
+import UserPaintings from './UserPaintings/UserPaintings';
 
 class AdminDashboard extends Component {
   constructor () {
@@ -39,23 +39,39 @@ class AdminDashboard extends Component {
   }
 
   componentDidMount() {
-    console.log('user.username -> ', this.props.user.username)
-    axios.get(`/api/getUserId/${this.props.user.username}`)
-    .then((response) => {
-      this.setState({ userId: response.data[0].userid })
-      console.log('userId -> ', this.state.userId);
-    })
-    .catch((error) => {
-      console.log(error)
-    })
+    console.log(this.props);
+    if (this.props.user) {
+      axios.get(`/api/getUserId/${this.props.user.username}`)
+      .then((response) => {
+        this.setState({ userId: response.data[0].userid })
+        console.log('userId -> ', this.state.userId);
+        console.log('user.username -> ', this.props.user.username)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+    }
+    
   }
 
   changeView(str) {
-    if ( str === 'update' ) {
-      this.setState({ view: 'update' })
-    } else if ( str === 'destroy' ) {
-      this.setState({ view: 'destroy' })
-    } else this.setState({ view: 'add' })
+    switch (str) {
+      case "update":
+        this.setState({ view: "update" })
+        break;
+
+      case "destroy":
+        this.setState({ view: "destroy" })
+        break;
+      
+      case "show":
+        this.setState({ view: "show" })
+        break;
+    
+      default:
+        this.setState({ view: "add" })
+        break;
+    }
   }
 
   render() {
@@ -69,17 +85,21 @@ class AdminDashboard extends Component {
             <button onClick={ () => {this.changeView('add')} }>add</button>
             <button onClick={ () => {this.changeView('update')} }>update</button>
             <button onClick={ () => {this.changeView('destroy')} }>destroy</button>
+            <button onClick={ () => {this.changeView('show')} }>show paintings you uploaded</button>
 
             {
               this.state.view === 'add' 
               ? <AddNewPainting user={ this.state.userId }/>
               : this.state.view === 'update'
                 ? <UpdatePainting />
-                : <DestroyPainting />
+                : this.state.view === 'destroy'
+                  ? <DestroyPainting />
+                    : <UserPaintings user={ this.state.userId } />
             }
-            <UserPaintings user={ this.state.userId } />
+            
           </div>}
-          {!user && <p>You mush log in! <Link to="/admin">Log in</Link></p>}
+          
+          {!user && <p>You must log in! <Link to="/admin">Log in</Link></p>}
           
         </div>
       </div>

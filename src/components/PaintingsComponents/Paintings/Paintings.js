@@ -54,6 +54,8 @@ class Paintings extends Component {
       <div>
         <button onClick={ () => {this.getPaintingsByGenre('battle')} }>battle paintings</button>
         <button onClick={ () => {this.getPaintingsByGenre('marina')} }>marina</button>
+        <button onClick={ () => {this.getPaintingsByGenre('landscape')} }>landscape</button>
+        <button onClick={ () => {this.getPaintingsByGenre('cityscape')} }>cityscape</button>
         
         <br />
         <button onClick={ this.getPaintings }>clear</button>

@@ -11,7 +11,6 @@ class SlideShow extends Component {
     this.state = {
       paintings: []
     }
-
   }
 
   componentWillMount = () => {
@@ -44,15 +43,15 @@ class SlideShow extends Component {
     .map((element, index) => {
       return (
         <div key={ index }>
-          <div className="slideshow">
+          <div className="slideshow-img-container">
             <img src={ element.url } alt={ element.title }/>
           </div>
         </div>
       )
     })
     return (
-      <div>
-        <Slider {...settings} className="slideshow">
+      <div className="main-slideshow-container">
+        <Slider {...settings}>
           { display }
         </Slider>
       </div>

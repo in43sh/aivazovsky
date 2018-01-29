@@ -1,0 +1,13 @@
+.user-paintings-container {
+  background-color: rgb(242, 240, 239);
+}
+
+table {
+  border-collapse: collapse;
+  margin: 0 auto;
+  border-radius: 4px;
+}
+
+td, tr, th {
+  border: 1px solid black;
+}

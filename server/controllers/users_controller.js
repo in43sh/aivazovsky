@@ -61,4 +61,7 @@ module.exports = {
       .then( user => res.status(200).send(user) )
       .catch( () => res.status(500).send() )
   }
+  // ,keepSession (req, res, next) {
+  //   req.session.user ? res.status(200).json(req.session.user) : res.status.json('No session');
+  // }
 };

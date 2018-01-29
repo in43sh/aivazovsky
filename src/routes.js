@@ -12,10 +12,6 @@ import AddNewPainting from './components/AdminComponents/AddNewPainting';
 import UpdatePainting from './components/AdminComponents/UpdatePainting';
 import DestroyPainting from './components/AdminComponents/DestroyPainting';
 import AdminDashboard from './components/AdminComponents/AdminDashboard';
-import UserPaintings from './components/AdminComponents/UserPaintings';
-import Uploader from './components/AdminComponents/Uploader';
-
-import SlideShow from './components/SlideShow/SlideShow';
 
 export default (
   <Switch>
@@ -30,12 +26,6 @@ export default (
     <Route path="/add" component={ AddNewPainting } />
     <Route path="/update" component={ UpdatePainting } />
     <Route path="/destroy" component={ DestroyPainting } />
-
-    <Route path="/user_paintings" component={ UserPaintings } />
-
-    <Route path="/uploader" component={ Uploader }/>
-
-    <Route path="/slideshow" component={ SlideShow }/>
     
     <Route path="*" component={ NotFound }/>
   </Switch>
