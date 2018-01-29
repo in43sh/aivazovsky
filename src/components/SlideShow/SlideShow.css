@@ -1,5 +1,6 @@
 .slideshow-parent-container {
-  width: 100%;
+  width: 90%;
+  margin: 0 auto;
 }
 
 .slideshow-child-container {
@@ -21,5 +22,5 @@
 .slick-arrow,
 .slick-prev:before,
 .slick-next:before {
-  color: blue;
+  color: #29BDB3;
 }

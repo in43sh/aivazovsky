@@ -16,6 +16,12 @@ class Admin extends Component {
     this.login = this.login.bind(this)
   }
 
+  componentDidMount() {
+    if (this.props.user) {
+      this.props.history.push('/dashboard');
+    }
+  }
+
   login() {
     const username = this.state.userInput
     const password = this.state.passInput
@@ -51,8 +57,14 @@ class Admin extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  };
+};
+
 const mapDispatchToProps = {
   login: login
 }
 
-export default connect(null, mapDispatchToProps)(Admin);
+export default connect(mapStateToProps, mapDispatchToProps)(Admin);
