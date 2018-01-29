@@ -52,3 +52,7 @@
 .submit-btn:hover {
   background-color: #45A049;
 }
+
+.login-info-container {
+  text-align: center;
+}

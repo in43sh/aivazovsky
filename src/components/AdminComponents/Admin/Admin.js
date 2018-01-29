@@ -11,7 +11,8 @@ class Admin extends Component {
     this.state = {
       userInput: '',
       passInput: '',
-      message: ''
+      message: '',
+      errorMessage: ''
     }
     this.login = this.login.bind(this)
   }
@@ -29,14 +30,27 @@ class Admin extends Component {
       username,
       password
     }).then(response => {
-      // console.log('response.data ->', response.data)
-      this.props.login(response.data.user)
-      this.props.history.push('/dashboard');
-      console.log('you are in')
+      if (response.data.status === 200) {
+        console.log('response ->', response)
+        this.props.login(response.data.user)
+        this.props.history.push('/dashboard');
+        console.log('you are in')
+      } else if (response.data.status === 403) {
+        console.log('Check the login and password')
+      }
     }).catch(error => {
-      console.log(error)
+      console.log(error.response)
+      console.log(error.response.data.message)
+      if (error.response.status === 401) {
+        this.setState({ errorMessage: 'Wrong password' })
+      } else if (error.response.status === 403) {
+        this.setState({ errorMessage: 'This user is not registered' })
+      }
+      console.log(this.state.errorMessage);
     })
   }
+
+
 
   render() {
     return (
@@ -51,6 +65,7 @@ class Admin extends Component {
             </div>
 
             <button className="submit-btn" onClick={ this.login }>submit</button>
+            <div className="login-info-container">{this.state.errorMessage}</div>
           </div>
       </div>
     );
