@@ -27,14 +27,14 @@ class AddNewPainting extends Component {
 
   addNewPainting = () => {
     const { url } = this.props; // destructuring object from Redux
-    console.log(this.props)
+    // console.log(this.props)
     axios.post('/api/add', {
       userid: this.props.user,
       title: this.state.titleInput,
       year: this.state.yearInput,
       dimensions: this.state.dimensionsInput,
       genre: this.state.genreInput,
-      url: this.props.url // from Redux
+      url: url // from Redux
     })
     .then((response) => {
       console.log(response);

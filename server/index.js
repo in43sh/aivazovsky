@@ -50,7 +50,7 @@ app.post('/api/upload', upload.single('painting'), (req, res) => {
   // it won't give any error, just make view that file is uploaded again though
   // it just checked if it's in there
   s3.putObject(params, (err) => { 
-    console.log(err);
+    // console.log(err);
     if (err) return res.status(400).send(err);
   })
   var imageUrl = 'https://s3.amazonaws.com/' + params.Bucket + '/'+ params.Key

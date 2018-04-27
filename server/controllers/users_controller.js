@@ -11,7 +11,7 @@ module.exports = {
         req.session.user = { username };
         res.json({ user: req.session.user });
       }).catch((error) => {
-        console.log('error ', error);
+        // console.log('error ', error);
         res.status(500).json({ message: 'Something bad happened!' })
       })
     })
@@ -43,20 +43,20 @@ module.exports = {
   },
 
   logout: (req, res, next) => {
-    console.log('req.session destr ->', req.session)
+    // console.log('req.session destr ->', req.session)
     req.session.destroy();
     res.status(200).send();
   },
 
   getUserData: (req, res, next) => {
-    console.log('req.session ->', req.session)
+    // console.log('req.session ->', req.session)
     res.json({ user: req.session.user })
   },
 
   getUserId: (req, res, next) => {
     const db = req.app.get('db');
     const { params } = req;
-    console.log('params.user -> ', params.user)
+    // console.log('params.user -> ', params.user)
     db.get_user([ params.user ])
       .then( user => res.status(200).send(user) )
       .catch( () => res.status(500).send() )
