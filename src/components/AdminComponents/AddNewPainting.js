@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import { urlsend } from '../../redux/ducks/reducer';
+// import { urlsend } from '../../redux/ducks/reducer';
 
 import Uploader from './Uploader/Uploader';
 
@@ -49,28 +49,22 @@ class AddNewPainting extends Component {
       <div className="admin-main">
         <div className="admin-input-div">
           <div>Please enter the information about the painting:</div>
-
           <div>
             <input placeholder="Title:" className="input-data-field" onChange={ (e) => this.setState({ titleInput: e.target.value }) }></input>
           </div>
-          
           <div>
             <input placeholder="Year:" className="input-data-field"  onChange={ (e) => this.setState({ yearInput: e.target.value }) }></input>
           </div>
-          
           <div>
             <input placeholder="Dimensions:" className="input-data-field"  onChange={ (e) => this.setState({ dimensionsInput: e.target.value }) }></input>
           </div>
-
           <div>
             <input placeholder="Genre:" className="input-data-field"  onChange={ (e) => this.setState({ genreInput: e.target.value }) }></input>
           </div>
-
           {/* uploads image to AWS when file is dropped there */}
           <div>
-            <Uploader /> 
+            <Uploader />
           </div>
-
           <button className="submit-btn"  onClick={ this.addNewPainting }>Submit</button>
         </div>
       </div>
