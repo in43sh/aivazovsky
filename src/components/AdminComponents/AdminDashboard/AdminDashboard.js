@@ -21,15 +21,6 @@ class AdminDashboard extends Component {
     this.logout = this.logout.bind(this)
   }
 
-  logout() {
-    axios.post('/logout').then(response => {
-      this.props.login(null)
-      console.log('you are out')
-    }).catch(error => {
-      console.log(error)
-    })
-  }
-
   componentWillMount() {
     axios.get('/user-data').then(response => {
       if (response.data.user) {
@@ -51,6 +42,15 @@ class AdminDashboard extends Component {
         console.log(error)
       })
     }
+  }
+  
+  logout() {
+    axios.post('/logout').then(response => {
+      this.props.login(null)
+      console.log('you are out')
+    }).catch(error => {
+      console.log(error)
+    })
   }
 
   changeView(str) {

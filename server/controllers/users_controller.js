@@ -9,7 +9,7 @@ module.exports = {
     .then(hashedPassword => {
       db.create_user([ username, hashedPassword ]).then(() => {
         req.session.user = { username };
-        res.json({ user: req.session.user });
+        res.status(200).json({ user: req.session.user });
       }).catch((error) => {
         // console.log('error ', error);
         res.status(500).json({ message: 'Something bad happened!' })

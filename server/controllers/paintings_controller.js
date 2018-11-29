@@ -65,7 +65,7 @@ module.exports = {
 
   update: ( req, res, next ) => {
     const db = req.app.get('db');
-    const { params, body } = req; 
+    const { params, body } = req;
     // console.log('params, body -> ', params, body);
 
     db.update_painting([ params.id, body.data ])

@@ -54,7 +54,7 @@ class SlideShow extends Component {
     return (
       <div className="slideshow-parent-container">
 
-          <Slider className="slider-compontent" {...settings}>
+          <Slider className="slider-component" {...settings}>
             { display }
           </Slider>
 
