@@ -17,7 +17,7 @@ class Paintings extends Component {
     axios.get(`/api/paintings`)
     .then((response) => {
       this.setPaintings(response.data)
-      console.log(this.state.paintings);
+      // console.log(this.state.paintings);
     })
     .catch((error) => {
       console.log(error);

@@ -14,7 +14,7 @@ class Uploader extends Component {
       url: ''
     }
   }
-  
+
   onDrop = (files) => {
     request
     .post('/api/upload')
@@ -22,7 +22,7 @@ class Uploader extends Component {
     .end((error, response) => {
       this.setState({ url: response.text })
       this.props.urlsend(response.text)
-      console.log('response -> ', response.text)
+      // console.log('response -> ', response.text)
       if (error) console.log(error);
       console.log('File Uploaded Succesfully');
     })

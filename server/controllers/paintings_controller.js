@@ -2,7 +2,7 @@ module.exports = {
   add_painting: (req, res, next) => {
     const db = req.app.get('db');
     const { userid, title, year, dimensions, genre, url } = req.body;
-    console.log('deconstructured req.body ', title, year, dimensions, genre, url);
+    // console.log('deconstructured req.body ', title, year, dimensions, genre, url);
 
     db.add_painting([ userid, title, year, dimensions, genre, url ])
       .then( () => res.status(200).send() )

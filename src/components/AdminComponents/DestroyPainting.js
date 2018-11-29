@@ -10,11 +10,11 @@ export default class DestroyPainting extends Component {
     }
     this.destroyPainting = this.destroyPainting.bind(this)
   }
-  
+
   destroyPainting() {
     axios.delete(`/api/delete/${this.state.idInput}`)
     .then((response) => {
-      console.log(response)
+      // console.log(response)
     })
     .catch((error) => {
       console.log(error)

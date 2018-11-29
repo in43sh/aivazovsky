@@ -30,24 +30,24 @@ class AdminDashboard extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props);
+    // console.log(this.props);
     if (this.props.user) {
       axios.get(`/api/getUserId/${this.props.user.username}`)
       .then((response) => {
         this.setState({ userId: response.data[0].userid })
-        console.log('userId -> ', this.state.userId);
-        console.log('user.username -> ', this.props.user.username)
+        // console.log('userId -> ', this.state.userId);
+        // console.log('user.username -> ', this.props.user.username)
       })
       .catch((error) => {
         console.log(error)
       })
     }
   }
-  
+
   logout() {
     axios.post('/logout').then(response => {
       this.props.login(null)
-      console.log('you are out')
+      // console.log('you are out')
     }).catch(error => {
       console.log(error)
     })

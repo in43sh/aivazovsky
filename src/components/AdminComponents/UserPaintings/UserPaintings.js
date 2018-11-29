@@ -16,7 +16,7 @@ class UserPaintings extends Component {
     axios.get(`/api/paintings/user=${ this.props.user }`)
     .then((response) => {
       this.setState({ userPaintings: response.data })
-      console.log('userPaintings -> ', this.state.userPaintings);
+      // console.log('userPaintings -> ', this.state.userPaintings);
     })
     .catch((error) => {
       console.log(error);

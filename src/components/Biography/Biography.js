@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import portrait from '../img/portrait.jpg';
 import './Biography.css';
 
 class Biography extends Component {
@@ -9,18 +10,15 @@ class Biography extends Component {
           <h1 className="biography-top-name">Ivan Aivazovsky</h1>
           <h2 className="biography-top-other-names">Иван Айвазовский (Հովհաննես Կոստանդինեսի Հայվազյան - Оганес Гайвазян)</h2>
         </div>
-
-        <div className="biography-parent-container">       
+        <div className="biography-parent-container">
           <div className="biography-child-container-body">
             <div className="portrait-wrapper">
               <div>
-                <img src="https://usw2-uploads7.wikiart.org/images/ivan-aivazovsky.jpg!Portrait.jpg" alt="portrait of Ivan Aivazovsky" className="img-wrapper" />
+                <img src={portrait} alt="portrait of Ivan Aivazovsky" className="img-wrapper" />
               </div>
               <div className="portrait-desc">
-                
               </div>
             </div>
-            
             <div className="biography-container">
               <span className="biography-content">
                 Throughout his lifetime, Aivazovsky contributed over 6,000 paintings to the art world,
@@ -43,7 +41,7 @@ class Biography extends Component {
                 In addition to being the most prolific of Russian Armenian painters, Aivazovsky founded an
                 art school and gallery to engage and educate other artists of the day. He also and built
                 a historical museum in his hometown on Feodosia, Crimea, in addition to beginning the first
-                archaeological expeditions of the same region. 
+                archaeological expeditions of the same region.
                 <br />
                 <br />
                 Today, Aivazovsky’s paintings have been auctioned off for millions of dollars and have been printed on

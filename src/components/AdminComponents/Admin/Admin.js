@@ -29,19 +29,19 @@ class Admin extends Component {
       username,
       password
     }).then(response => {
-      console.log('response ->', response)
+      // console.log('response ->', response)
       this.props.login(response.data.user)
       this.props.history.push('/dashboard');
-      console.log('you are in')
+      // console.log('you are in')
     }).catch(error => {
-      console.log(error.response)
-      console.log(error.response.data.message)
+      // console.log(error.response)
+      // console.log(error.response.data.message)
       if (error.response.status === 401) {
         this.setState({ errorMessage: 'Wrong password' })
       } else if (error.response.status === 403) {
         this.setState({ errorMessage: 'This user is not registered' })
       }
-      console.log(this.state.errorMessage);
+      // console.log(this.state.errorMessage);
     })
   }
 
