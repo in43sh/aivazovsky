@@ -6,7 +6,7 @@ const bcrypt = require ('bcrypt');
 const saltRound = 12;
 const multer =  require('multer');
 const AWS = require('aws-sdk');
-const path = require('path')
+const path = require('path');
 const port = process.env.PORT || 3333;
 const app = express();
 
@@ -41,7 +41,7 @@ const upload = multer({
 app.post('/api/upload', upload.single('painting'), (req, res) => {
   var params = {
     Bucket: process.env.BUCKET,
-    Key: req.file.originalname, 
+    Key: req.file.originalname,
     Body: req.file.buffer,
     ContentType: "image/png",
     ACL: 'public-read'
@@ -49,7 +49,7 @@ app.post('/api/upload', upload.single('painting'), (req, res) => {
   // s3.putObject() puts the image to the AWS bucket. If the file is already there
   // it won't give any error, just make view that file is uploaded again though
   // it just checked if it's in there
-  s3.putObject(params, (err) => { 
+  s3.putObject(params, (err) => {
     // console.log(err);
     if (err) return res.status(400).send(err);
   })
